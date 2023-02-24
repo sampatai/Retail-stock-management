@@ -191,6 +191,10 @@
             "LiteDB.Async": {
               "target": "Package",
               "version": "[0.1.5, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [

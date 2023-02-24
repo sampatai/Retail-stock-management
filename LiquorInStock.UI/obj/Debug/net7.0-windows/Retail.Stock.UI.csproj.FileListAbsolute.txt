@@ -31,3 +31,14 @@ D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Retail.Stoc
 D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Retail.Stock.Domain.pdb
 D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Retail.Stock.Shared.pdb
 D:\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.csproj.CopyComplete
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Configuration.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Configuration.Binder.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.DependencyInjection.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.Configuration.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Logging.Console.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Options.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Primitives.dll
