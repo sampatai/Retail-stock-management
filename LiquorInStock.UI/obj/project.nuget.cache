@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "SK+exbEYe4AhKmCCnRhyS/R8Em+ZGhAYBYH5ivDaGOjivjyzr6BEPnVxe/A4hFTJySFte/5iROmYvBG4F/xRwA==",
+  "dgSpecHash": "nhIqXu1nh5/sXk3JLLDBt4UFYwycjUaV/qZ0JKDGa8oBU8L89Nsy/WqGJy7p680bsAk6xxKR7Vj0MswiF5UGog==",
   "success": true,
-  "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock.UI\\LiquorInStock.UI.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock.UI\\Retail.Stock.UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\ardalis.guardclauses\\4.0.1\\ardalis.guardclauses.4.0.1.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\jetbrains.annotations\\2021.3.0\\jetbrains.annotations.2021.3.0.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\litedb\\5.0.15\\litedb.5.0.15.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\litedb.async\\0.1.5\\litedb.async.0.1.5.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UZmah3oBYKtYp+xwLamsY1ObpSSMOwSUa6vZRioW7VUSFTAnkilteUrAgtWwfjaY3mWutmlcZKTEkbFQNbWGGA==",
+  "dgSpecHash": "TXcnrxPKG8Q9z5kj/T3CK7SazIxnEbn3VuZZDD8a4lyzLwJrjCu7+5lh/4PaNv30yUDxNEf7gLaThjwthMd0YQ==",
   "success": true,
-  "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\LiquorInStock.Shared.csproj",
+  "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
     "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",

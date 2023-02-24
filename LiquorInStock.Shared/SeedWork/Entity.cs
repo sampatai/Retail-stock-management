@@ -68,9 +68,8 @@ namespace LiquorInStock.Shared.SeedWork
     }
     public abstract class AuditableEntity : Entity
     {
-        public DateTime AddedOn { get; set; }
-        public int AddedBy { get; set; }
+        public DateTime AddedOn { get; set; }        
         public DateTime? UpdatedOn { get; set; }
-        public int? UpdatedBy { get; set; }
+       
     }
 }

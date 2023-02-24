@@ -119,9 +119,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Shared\\LiquorInStock.Shared.csproj",
-      "projectName": "LiquorInStock.Shared",
-      "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\LiquorInStock.Shared.csproj",
+      "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
+      "projectName": "Retail.Stock.Shared",
+      "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
       "packagesPath": "C:\\Users\\sampat.adhikari\\.nuget\\packages\\",
       "outputPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\obj\\",
       "projectStyle": "PackageReference",

@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "Ardalis.GuardClauses/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "JetBrains.Annotations": "2021.3.0"
+        },
+        "compile": {
+          "lib/net6.0/Ardalis.GuardClauses.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Ardalis.GuardClauses.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "JetBrains.Annotations/2021.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "related": ".deps.json;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "related": ".deps.json;.xml"
+          }
+        }
+      },
       "LiteDB/5.0.15": {
         "type": "package",
         "compile": {
@@ -73,49 +102,93 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "LiquorInStock.Application/1.0.0": {
+      "Retail.Stock.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "LiquorInStock.Domain": "1.0.0",
-          "LiquorInStock.Shared": "1.0.0"
+          "Retail.Stock.Domain": "1.0.0",
+          "Retail.Stock.Shared": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/LiquorInStock.Application.dll": {}
+          "bin/placeholder/Retail.Stock.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/LiquorInStock.Application.dll": {}
+          "bin/placeholder/Retail.Stock.Application.dll": {}
         }
       },
-      "LiquorInStock.Domain/1.0.0": {
+      "Retail.Stock.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "LiquorInStock.Shared": "1.0.0"
+          "Ardalis.GuardClauses": "4.0.1",
+          "Retail.Stock.Shared": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/LiquorInStock.Domain.dll": {}
+          "bin/placeholder/Retail.Stock.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/LiquorInStock.Domain.dll": {}
+          "bin/placeholder/Retail.Stock.Domain.dll": {}
         }
       },
-      "LiquorInStock.Shared/1.0.0": {
+      "Retail.Stock.Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "MediatR": "12.0.1"
         },
         "compile": {
-          "bin/placeholder/LiquorInStock.Shared.dll": {}
+          "bin/placeholder/Retail.Stock.Shared.dll": {}
         },
         "runtime": {
-          "bin/placeholder/LiquorInStock.Shared.dll": {}
+          "bin/placeholder/Retail.Stock.Shared.dll": {}
         }
       }
     }
   },
   "libraries": {
+    "Ardalis.GuardClauses/4.0.1": {
+      "sha512": "RemnImQf/BWR8oYqFpdw+hn+b4Q1w+pGujkRiSfjQhMPuiERwGn4UMmQv+6UDE4qbPlnIN+e3e40JkvBhzgfzg==",
+      "type": "package",
+      "path": "ardalis.guardclauses/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ardalis.guardclauses.4.0.1.nupkg.sha512",
+        "ardalis.guardclauses.nuspec",
+        "icon.png",
+        "lib/net451/Ardalis.GuardClauses.dll",
+        "lib/net451/Ardalis.GuardClauses.pdb",
+        "lib/net451/Ardalis.GuardClauses.xml",
+        "lib/net6.0/Ardalis.GuardClauses.dll",
+        "lib/net6.0/Ardalis.GuardClauses.pdb",
+        "lib/net6.0/Ardalis.GuardClauses.xml",
+        "lib/netstandard2.0/Ardalis.GuardClauses.dll",
+        "lib/netstandard2.0/Ardalis.GuardClauses.pdb",
+        "lib/netstandard2.0/Ardalis.GuardClauses.xml"
+      ]
+    },
+    "JetBrains.Annotations/2021.3.0": {
+      "sha512": "Ddxjs5RRjf+c8m9m++WvhW1lz1bqNhsTjWvCLbQN9bvKbkJeR9MhtfNwKgBRRdG2yLHcXFr5Lf7fsvvkiPaDRg==",
+      "type": "package",
+      "path": "jetbrains.annotations/2021.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "jetbrains.annotations.2021.3.0.nupkg.sha512",
+        "jetbrains.annotations.nuspec",
+        "lib/net20/JetBrains.Annotations.dll",
+        "lib/net20/JetBrains.Annotations.xml",
+        "lib/netstandard1.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard1.0/JetBrains.Annotations.dll",
+        "lib/netstandard1.0/JetBrains.Annotations.xml",
+        "lib/netstandard2.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard2.0/JetBrains.Annotations.dll",
+        "lib/netstandard2.0/JetBrains.Annotations.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.xml"
+      ]
+    },
     "LiteDB/5.0.15": {
       "sha512": "nucyfCOGSATH553BxplxExP3BOqEwmHt0B57426EIaQjD3CC1Odb52VVCGgTxyYaD2oe3B/cJk8jDo6XiBJqPg==",
       "type": "package",
@@ -203,27 +276,27 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "LiquorInStock.Application/1.0.0": {
+    "Retail.Stock.Application/1.0.0": {
       "type": "project",
-      "path": "../LiquorInStock.Application/LiquorInStock.Application.csproj",
-      "msbuildProject": "../LiquorInStock.Application/LiquorInStock.Application.csproj"
+      "path": "../LiquorInStock.Application/Retail.Stock.Application.csproj",
+      "msbuildProject": "../LiquorInStock.Application/Retail.Stock.Application.csproj"
     },
-    "LiquorInStock.Domain/1.0.0": {
+    "Retail.Stock.Domain/1.0.0": {
       "type": "project",
-      "path": "../LiquorInStock.Domain/LiquorInStock.Domain.csproj",
-      "msbuildProject": "../LiquorInStock.Domain/LiquorInStock.Domain.csproj"
+      "path": "../LiquorInStock.Domain/Retail.Stock.Domain.csproj",
+      "msbuildProject": "../LiquorInStock.Domain/Retail.Stock.Domain.csproj"
     },
-    "LiquorInStock.Shared/1.0.0": {
+    "Retail.Stock.Shared/1.0.0": {
       "type": "project",
-      "path": "../LiquorInStock.Shared/LiquorInStock.Shared.csproj",
-      "msbuildProject": "../LiquorInStock.Shared/LiquorInStock.Shared.csproj"
+      "path": "../LiquorInStock.Shared/Retail.Stock.Shared.csproj",
+      "msbuildProject": "../LiquorInStock.Shared/Retail.Stock.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "LiquorInStock.Application >= 1.0.0",
       "LiteDB >= 5.0.15",
-      "LiteDB.Async >= 0.1.5"
+      "LiteDB.Async >= 0.1.5",
+      "Retail.Stock.Application >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -233,9 +306,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\LiquorInStock.Infrastructure.csproj",
-      "projectName": "LiquorInStock.Infrastructure",
-      "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\LiquorInStock.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj",
+      "projectName": "Retail.Stock.Infrastructure",
+      "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\sampat.adhikari\\.nuget\\packages\\",
       "outputPath": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
@@ -257,8 +330,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Retail-stock-management\\LiquorInStock.Application\\LiquorInStock.Application.csproj": {
-              "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Application\\LiquorInStock.Application.csproj"
+            "D:\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj": {
+              "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj"
             }
           }
         }

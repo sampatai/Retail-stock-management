@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "nXB5D1wWdKZJa/uQFya5L9rPtoL0w3usFCQhMh6txugpswPcUDBb8/QHECMAYG7Hz616JpgZBVVKx5B2EEaYUg==",
+  "dgSpecHash": "xSTtwNDas0Fz4klMVD2BFM7XMFJZz/bFhEah9Cx4Al5f3KzSMgbo+7MJxtH10CgxKptorwwl0mczv2nwcI0bbg==",
   "success": true,
-  "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock.Domain\\LiquorInStock.Domain.csproj",
+  "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\ardalis.guardclauses\\4.0.1\\ardalis.guardclauses.4.0.1.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\jetbrains.annotations\\2021.3.0\\jetbrains.annotations.2021.3.0.nupkg.sha512",
     "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
     "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\sampat.adhikari\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
