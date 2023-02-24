@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquorInStock", "LiquorInStock\LiquorInStock.csproj", "{C1D93D6B-0216-4C2A-8689-79773ED03567}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquorInStock.UI", "LiquorInStock\LiquorInStock.UI.csproj", "{C1D93D6B-0216-4C2A-8689-79773ED03567}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquorInStock.Domain", "LiquorInStock.Domain\LiquorInStock.Domain.csproj", "{5C7013CC-42EE-4A76-9CE1-DE93327FC113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquorInStock.Domain", "LiquorInStock.Domain\LiquorInStock.Domain.csproj", "{5C7013CC-42EE-4A76-9CE1-DE93327FC113}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquorInStock.Infrastructure", "LiquorInStock.Infrastructure\LiquorInStock.Infrastructure.csproj", "{E7222CBA-A481-4D91-93D9-AB7120035295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquorInStock.Infrastructure", "LiquorInStock.Infrastructure\LiquorInStock.Infrastructure.csproj", "{E7222CBA-A481-4D91-93D9-AB7120035295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquorInStock.Application", "LiquorInStock.Application\LiquorInStock.Application.csproj", "{3243DDA2-531A-4035-8794-734338CA94B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquorInStock.Application", "LiquorInStock.Application\LiquorInStock.Application.csproj", "{3243DDA2-531A-4035-8794-734338CA94B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquorInStock.Shared", "LiquorInStock.Shared\LiquorInStock.Shared.csproj", "{66EBEDB9-7EFF-4B85-9BBB-44F643DA5764}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquorInStock.Shared", "LiquorInStock.Shared\LiquorInStock.Shared.csproj", "{66EBEDB9-7EFF-4B85-9BBB-44F643DA5764}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
