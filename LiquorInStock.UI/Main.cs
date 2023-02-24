@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 
 namespace LiquorInStock.UI
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         //public Form1()
         //{
@@ -10,7 +10,7 @@ namespace LiquorInStock.UI
 
         //}
         private readonly ILogger _logger;
-        public Form1(ILogger<Form1> logger)
+        public Main(ILogger<Main> logger)
         {
             InitializeComponent();
             _logger = logger;
@@ -31,6 +31,21 @@ namespace LiquorInStock.UI
                 //Log technical exception 
                 _logger.LogError(ex.Message);
             }
+        }
+
+        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void productToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dailySalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

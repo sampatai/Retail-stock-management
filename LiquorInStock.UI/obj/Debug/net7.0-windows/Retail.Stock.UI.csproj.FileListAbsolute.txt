@@ -4,7 +4,6 @@ D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Retail.Stoc
 D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Retail.Stock.UI.dll
 D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Retail.Stock.UI.pdb
 D:\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.csproj.AssemblyReference.cache
-D:\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\LiquorInStock.UI.Form1.resources
 D:\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.csproj.GenerateResource.cache
 D:\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.GeneratedMSBuildEditorConfig.editorconfig
 D:\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.AssemblyInfoInputs.cache
@@ -42,3 +41,4 @@ D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.E
 D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Options.dll
 D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 D:\Retail-stock-management\LiquorInStock.UI\bin\Debug\net7.0-windows\Microsoft.Extensions.Primitives.dll
+D:\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\LiquorInStock.UI.Main.resources

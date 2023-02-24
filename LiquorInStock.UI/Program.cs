@@ -23,7 +23,7 @@ namespace LiquorInStock.UI
             ConfigureServices(services);
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                var form1 = serviceProvider.GetRequiredService<Form1>();
+                var form1 = serviceProvider.GetRequiredService<Main>();
                 Application.Run(form1);
             }
             //Application.Run(new Form1());
@@ -31,7 +31,7 @@ namespace LiquorInStock.UI
         private static void ConfigureServices(ServiceCollection services)
         {
             services.AddLogging(configure => configure.AddConsole())
-                .AddScoped<Form1>()
+                .AddScoped<Main>()
                 .AddScoped<ICategoryRepository, CategoryRepository>();
             
         }
