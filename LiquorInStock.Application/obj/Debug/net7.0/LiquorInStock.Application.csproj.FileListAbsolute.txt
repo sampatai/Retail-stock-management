@@ -1,0 +1,17 @@
+D:\Retail-stock-management\LiquorInStock.Application\bin\Debug\net7.0\LiquorInStock.Application.deps.json
+D:\Retail-stock-management\LiquorInStock.Application\bin\Debug\net7.0\LiquorInStock.Application.dll
+D:\Retail-stock-management\LiquorInStock.Application\bin\Debug\net7.0\LiquorInStock.Application.pdb
+D:\Retail-stock-management\LiquorInStock.Application\bin\Debug\net7.0\LiquorInStock.Domain.dll
+D:\Retail-stock-management\LiquorInStock.Application\bin\Debug\net7.0\LiquorInStock.Shared.dll
+D:\Retail-stock-management\LiquorInStock.Application\bin\Debug\net7.0\LiquorInStock.Domain.pdb
+D:\Retail-stock-management\LiquorInStock.Application\bin\Debug\net7.0\LiquorInStock.Shared.pdb
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\LiquorInStock.Application.csproj.AssemblyReference.cache
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\LiquorInStock.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\LiquorInStock.Application.AssemblyInfoInputs.cache
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\LiquorInStock.Application.AssemblyInfo.cs
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\LiquorInStock.Application.csproj.CoreCompileInputs.cache
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\LiquorInStock.Application.csproj.CopyComplete
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\LiquorInStock.Application.dll
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\refint\LiquorInStock.Application.dll
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\LiquorInStock.Application.pdb
+D:\Retail-stock-management\LiquorInStock.Application\obj\Debug\net7.0\ref\LiquorInStock.Application.dll
