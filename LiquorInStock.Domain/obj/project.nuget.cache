@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "q1+xk68cuBL8Fgv7uvKpxS+JDF2ZV5pA3NXg7+Q94dxryr4wLEjs/QX0BQ+issjGK+ZuDXMvx7lQ+8FQjJW0LQ==",
+  "dgSpecHash": "nXB5D1wWdKZJa/uQFya5L9rPtoL0w3usFCQhMh6txugpswPcUDBb8/QHECMAYG7Hz616JpgZBVVKx5B2EEaYUg==",
   "success": true,
   "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock.Domain\\LiquorInStock.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

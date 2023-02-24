@@ -1,4 +1,4 @@
-﻿namespace LiquorInStock
+﻿namespace LiquorInStock.UI
 {
     partial class Form1
     {

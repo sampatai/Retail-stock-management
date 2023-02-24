@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquorInStock.UI", "LiquorInStock\LiquorInStock.UI.csproj", "{C1D93D6B-0216-4C2A-8689-79773ED03567}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquorInStock.Domain", "LiquorInStock.Domain\LiquorInStock.Domain.csproj", "{5C7013CC-42EE-4A76-9CE1-DE93327FC113}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquorInStock.Infrastructure", "LiquorInStock.Infrastructure\LiquorInStock.Infrastructure.csproj", "{E7222CBA-A481-4D91-93D9-AB7120035295}"
@@ -13,16 +11,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquorInStock.Application",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquorInStock.Shared", "LiquorInStock.Shared\LiquorInStock.Shared.csproj", "{66EBEDB9-7EFF-4B85-9BBB-44F643DA5764}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquorInStock.UI", "LiquorInStock.UI\LiquorInStock.UI.csproj", "{42338B65-86ED-4533-8CA2-7B6120468BF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C1D93D6B-0216-4C2A-8689-79773ED03567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1D93D6B-0216-4C2A-8689-79773ED03567}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1D93D6B-0216-4C2A-8689-79773ED03567}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1D93D6B-0216-4C2A-8689-79773ED03567}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C7013CC-42EE-4A76-9CE1-DE93327FC113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C7013CC-42EE-4A76-9CE1-DE93327FC113}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C7013CC-42EE-4A76-9CE1-DE93327FC113}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{66EBEDB9-7EFF-4B85-9BBB-44F643DA5764}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66EBEDB9-7EFF-4B85-9BBB-44F643DA5764}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66EBEDB9-7EFF-4B85-9BBB-44F643DA5764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42338B65-86ED-4533-8CA2-7B6120468BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42338B65-86ED-4533-8CA2-7B6120468BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42338B65-86ED-4533-8CA2-7B6120468BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42338B65-86ED-4533-8CA2-7B6120468BF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

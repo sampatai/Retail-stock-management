@@ -1,4 +1,4 @@
-namespace LiquorInStock
+namespace LiquorInStock.UI
 {
     internal static class Program
     {
