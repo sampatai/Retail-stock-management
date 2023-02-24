@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-namespace LiquorInStock.Shared.SeedWork
+namespace Retail.Stock.Shared.SeedWork
 {
     public abstract class Enumeration : IComparable
     {

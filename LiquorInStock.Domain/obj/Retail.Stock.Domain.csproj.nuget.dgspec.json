@@ -50,6 +50,10 @@
             "Ardalis.GuardClauses": {
               "target": "Package",
               "version": "[4.0.1, )"
+            },
+            "LiteDB": {
+              "target": "Package",
+              "version": "[5.0.15, )"
             }
           },
           "imports": [
@@ -111,6 +115,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "LiteDB": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[12.0.1, )"

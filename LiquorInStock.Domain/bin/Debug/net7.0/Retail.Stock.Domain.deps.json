@@ -9,6 +9,7 @@
       "Retail.Stock.Domain/1.0.0": {
         "dependencies": {
           "Ardalis.GuardClauses": "4.0.1",
+          "LiteDB": "5.0.15",
           "Retail.Stock.Shared": "1.0.0"
         },
         "runtime": {
@@ -31,6 +32,14 @@
           "lib/netstandard2.0/JetBrains.Annotations.dll": {
             "assemblyVersion": "2021.3.0.0",
             "fileVersion": "2021.3.0.0"
+          }
+        }
+      },
+      "LiteDB/5.0.15": {
+        "runtime": {
+          "lib/netstandard2.0/LiteDB.dll": {
+            "assemblyVersion": "5.0.15.0",
+            "fileVersion": "5.0.15.0"
           }
         }
       },
@@ -64,6 +73,7 @@
       },
       "Retail.Stock.Shared/1.0.0": {
         "dependencies": {
+          "LiteDB": "5.0.15",
           "MediatR": "12.0.1"
         },
         "runtime": {
@@ -91,6 +101,13 @@
       "sha512": "sha512-Ddxjs5RRjf+c8m9m++WvhW1lz1bqNhsTjWvCLbQN9bvKbkJeR9MhtfNwKgBRRdG2yLHcXFr5Lf7fsvvkiPaDRg==",
       "path": "jetbrains.annotations/2021.3.0",
       "hashPath": "jetbrains.annotations.2021.3.0.nupkg.sha512"
+    },
+    "LiteDB/5.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nucyfCOGSATH553BxplxExP3BOqEwmHt0B57426EIaQjD3CC1Odb52VVCGgTxyYaD2oe3B/cJk8jDo6XiBJqPg==",
+      "path": "litedb/5.0.15",
+      "hashPath": "litedb.5.0.15.nupkg.sha512"
     },
     "MediatR/12.0.1": {
       "type": "package",

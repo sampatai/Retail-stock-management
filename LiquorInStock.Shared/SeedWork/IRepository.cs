@@ -1,4 +1,4 @@
-﻿namespace LiquorInStock.Shared.SeedWork
+﻿namespace Retail.Stock.Shared.SeedWork
 {
     public interface IRepository<T> where T : IAggregateRoot
     {

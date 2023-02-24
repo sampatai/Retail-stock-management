@@ -1,11 +1,12 @@
-﻿using MediatR;
-namespace LiquorInStock.Shared.SeedWork
+﻿using LiteDB;
+using MediatR;
+namespace Retail.Stock.Shared.SeedWork
 {
     public abstract class Entity
     {
         int? _requestedHashCode;
-        int _Id;
-        public virtual int Id
+        ObjectId _Id;
+        public virtual ObjectId Id
         {
             get => _Id;
             protected set => _Id = value;
@@ -19,7 +20,7 @@ namespace LiquorInStock.Shared.SeedWork
         public void ClearDomainEvents() => _domainEvents?.Clear();
 
 
-        public bool IsTransient() => this.Id == default(Int32);
+        public bool IsTransient() => this.Id == default(ObjectId);
 
         public override bool Equals(object obj)
         {

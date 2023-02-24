@@ -31,6 +31,19 @@
           }
         }
       },
+      "LiteDB/5.0.15": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/LiteDB.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/LiteDB.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MediatR/12.0.1": {
         "type": "package",
         "dependencies": {
@@ -82,6 +95,7 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Ardalis.GuardClauses": "4.0.1",
+          "LiteDB": "5.0.15",
           "Retail.Stock.Shared": "1.0.0"
         },
         "compile": {
@@ -95,6 +109,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "LiteDB": "5.0.15",
           "MediatR": "12.0.1"
         },
         "compile": {
@@ -148,6 +163,26 @@
         "lib/netstandard2.0/JetBrains.Annotations.xml",
         "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.dll",
         "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.xml"
+      ]
+    },
+    "LiteDB/5.0.15": {
+      "sha512": "nucyfCOGSATH553BxplxExP3BOqEwmHt0B57426EIaQjD3CC1Odb52VVCGgTxyYaD2oe3B/cJk8jDo6XiBJqPg==",
+      "type": "package",
+      "path": "litedb/5.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "AppVeyorSettings.json",
+        "LICENSE",
+        "icon_64x64.png",
+        "lib/net45/LiteDB.dll",
+        "lib/net45/LiteDB.xml",
+        "lib/netstandard1.3/LiteDB.dll",
+        "lib/netstandard1.3/LiteDB.xml",
+        "lib/netstandard2.0/LiteDB.dll",
+        "lib/netstandard2.0/LiteDB.xml",
+        "litedb.5.0.15.nupkg.sha512",
+        "litedb.nuspec"
       ]
     },
     "MediatR/12.0.1": {

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "TXcnrxPKG8Q9z5kj/T3CK7SazIxnEbn3VuZZDD8a4lyzLwJrjCu7+5lh/4PaNv30yUDxNEf7gLaThjwthMd0YQ==",
+  "dgSpecHash": "qg4o5JeU9Wl3iEbF0trxq5v0Q/DXF8oIXhRhEpwWzboZmjp5cia2O07l0Ekf6C9+cC89nlpGB+4mYRAAd30+ww==",
   "success": true,
   "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\litedb\\5.0.15\\litedb.5.0.15.nupkg.sha512",
     "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
     "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\sampat.adhikari\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"

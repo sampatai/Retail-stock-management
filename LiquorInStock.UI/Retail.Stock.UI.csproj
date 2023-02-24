@@ -8,4 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LiquorInStock.Application\Retail.Stock.Application.csproj" />
+    <ProjectReference Include="..\LiquorInStock.Infrastructure\Retail.Stock.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
