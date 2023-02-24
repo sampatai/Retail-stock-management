@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "LiquorInStock.Shared/1.0.0": {
+        "runtime": {
+          "LiquorInStock.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LiquorInStock.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

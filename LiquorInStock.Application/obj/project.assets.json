@@ -1,0 +1,117 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "LiquorInStock.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "LiquorInStock.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LiquorInStock.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LiquorInStock.Domain.dll": {}
+        }
+      },
+      "LiquorInStock.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/LiquorInStock.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LiquorInStock.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LiquorInStock.Domain/1.0.0": {
+      "type": "project",
+      "path": "../LiquorInStock.Domain/LiquorInStock.Domain.csproj",
+      "msbuildProject": "../LiquorInStock.Domain/LiquorInStock.Domain.csproj"
+    },
+    "LiquorInStock.Shared/1.0.0": {
+      "type": "project",
+      "path": "../LiquorInStock.Shared/LiquorInStock.Shared.csproj",
+      "msbuildProject": "../LiquorInStock.Shared/LiquorInStock.Shared.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "LiquorInStock.Domain >= 1.0.0",
+      "LiquorInStock.Shared >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Application\\LiquorInStock.Application.csproj",
+      "projectName": "LiquorInStock.Application",
+      "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Application\\LiquorInStock.Application.csproj",
+      "packagesPath": "C:\\Users\\sampat.adhikari\\.nuget\\packages\\",
+      "outputPath": "D:\\Retail-stock-management\\LiquorInStock.Application\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\sampat.adhikari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "D:\\Retail-stock-management\\LiquorInStock.Domain\\LiquorInStock.Domain.csproj": {
+              "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Domain\\LiquorInStock.Domain.csproj"
+            },
+            "D:\\Retail-stock-management\\LiquorInStock.Shared\\LiquorInStock.Shared.csproj": {
+              "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\LiquorInStock.Shared.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

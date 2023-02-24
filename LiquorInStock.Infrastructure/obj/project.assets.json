@@ -1,0 +1,201 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "LiteDB/5.0.15": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/LiteDB.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/LiteDB.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "LiteDB.Async/0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "LiteDB": "5.0.15"
+        },
+        "compile": {
+          "lib/netstandard2.0/litedbasync.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/litedbasync.dll": {}
+        }
+      },
+      "LiquorInStock.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "LiquorInStock.Domain": "1.0.0",
+          "LiquorInStock.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LiquorInStock.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LiquorInStock.Application.dll": {}
+        }
+      },
+      "LiquorInStock.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "LiquorInStock.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LiquorInStock.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LiquorInStock.Domain.dll": {}
+        }
+      },
+      "LiquorInStock.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/LiquorInStock.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LiquorInStock.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LiteDB/5.0.15": {
+      "sha512": "nucyfCOGSATH553BxplxExP3BOqEwmHt0B57426EIaQjD3CC1Odb52VVCGgTxyYaD2oe3B/cJk8jDo6XiBJqPg==",
+      "type": "package",
+      "path": "litedb/5.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "AppVeyorSettings.json",
+        "LICENSE",
+        "icon_64x64.png",
+        "lib/net45/LiteDB.dll",
+        "lib/net45/LiteDB.xml",
+        "lib/netstandard1.3/LiteDB.dll",
+        "lib/netstandard1.3/LiteDB.xml",
+        "lib/netstandard2.0/LiteDB.dll",
+        "lib/netstandard2.0/LiteDB.xml",
+        "litedb.5.0.15.nupkg.sha512",
+        "litedb.nuspec"
+      ]
+    },
+    "LiteDB.Async/0.1.5": {
+      "sha512": "3+S9LAuQEp06AyL4UMm3ziaSFvQbKNgJeyKpCsSoX3quJ4IdVpwibT7RqgSDM1kyJeKHwbhSqWqxLHSyg7ViwA==",
+      "type": "package",
+      "path": "litedb.async/0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/litedbasync.dll",
+        "litedb.async.0.1.5.nupkg.sha512",
+        "litedb.async.nuspec"
+      ]
+    },
+    "LiquorInStock.Application/1.0.0": {
+      "type": "project",
+      "path": "../LiquorInStock.Application/LiquorInStock.Application.csproj",
+      "msbuildProject": "../LiquorInStock.Application/LiquorInStock.Application.csproj"
+    },
+    "LiquorInStock.Domain/1.0.0": {
+      "type": "project",
+      "path": "../LiquorInStock.Domain/LiquorInStock.Domain.csproj",
+      "msbuildProject": "../LiquorInStock.Domain/LiquorInStock.Domain.csproj"
+    },
+    "LiquorInStock.Shared/1.0.0": {
+      "type": "project",
+      "path": "../LiquorInStock.Shared/LiquorInStock.Shared.csproj",
+      "msbuildProject": "../LiquorInStock.Shared/LiquorInStock.Shared.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "LiquorInStock.Application >= 1.0.0",
+      "LiteDB >= 5.0.15",
+      "LiteDB.Async >= 0.1.5"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\LiquorInStock.Infrastructure.csproj",
+      "projectName": "LiquorInStock.Infrastructure",
+      "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\LiquorInStock.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\sampat.adhikari\\.nuget\\packages\\",
+      "outputPath": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\sampat.adhikari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "D:\\Retail-stock-management\\LiquorInStock.Application\\LiquorInStock.Application.csproj": {
+              "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Application\\LiquorInStock.Application.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "dependencies": {
+          "LiteDB": {
+            "target": "Package",
+            "version": "[5.0.15, )"
+          },
+          "LiteDB.Async": {
+            "target": "Package",
+            "version": "[0.1.5, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

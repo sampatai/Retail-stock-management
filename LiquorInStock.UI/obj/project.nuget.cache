@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "zFAYUJWidpWMmSm9GQAcE+jh795MWq4rWetIarqqVyHNaXZh0A4iFB+xpo9LzmYafrgfKpm2RWBjgqElS7+oYQ==",
+  "success": true,
+  "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock\\LiquorInStock.UI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\litedb\\5.0.15\\litedb.5.0.15.nupkg.sha512",
+    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\litedb.async\\0.1.5\\litedb.async.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}
