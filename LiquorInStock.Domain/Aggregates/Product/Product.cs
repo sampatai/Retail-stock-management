@@ -1,4 +1,5 @@
 ﻿using LiteDB;
+using System.Diagnostics;
 
 namespace Retail.Stock.Domain.Aggregates.Product
 {
@@ -44,13 +45,12 @@ namespace Retail.Stock.Domain.Aggregates.Product
                 productPrices.SetBoxOrPacketSellingPrice(boxOrPacketSellingPrice.Value);
             }
             _ProductPrice.Add(productPrices);
+         
+        }
 
-            _CurrentRetailPrice();
-            if (boxOrPacketSellingPrice is not null)
-            {
-                _CurrentSellingPrice();
-            }
-
+        public void SetProductPrice(IEnumerable<ProductPrice> productPrices)
+        {
+            _ProductPrice.AddRange(productPrices);
         }
 
         public void TotalStock()
@@ -58,20 +58,6 @@ namespace Retail.Stock.Domain.Aggregates.Product
             StockIn += _ProductPrice.Sum(x => x.Quantity);
         }
 
-        public void TotalStockInBoxOrPacket()
-        {
-            StockInBoxOrPacket += _ProductPrice.Sum(x => x.BoxOrPacketQuantity);
-        }
-
-        private void _CurrentRetailPrice()
-        {
-            RetailPrice = _ProductPrice.Max(x => x.PricePerQuantity);
-        }
-
-        private void _CurrentSellingPrice()
-        {
-            var maxprice = _ProductPrice.Max(x => x.BoxOrPacketSellingPrice);
-            BoxOrPacketSellingPrice = maxprice is not null && maxprice != 0 ? maxprice.Value : BoxOrPacketSellingPrice;
-        }
+           
     }
 }
