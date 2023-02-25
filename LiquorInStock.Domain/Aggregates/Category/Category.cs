@@ -14,17 +14,13 @@ namespace Retail.Stock.Domain.Aggregates.Category
             CategoryName = Guard.Against.NullOrEmpty(categoryName);
             AddedOn = DateTime.UtcNow;
         }
-        public Category(string categoryName, int id)
-        {
-            Id = id;
-            CategoryName = Guard.Against.NullOrEmpty(categoryName);
-            UpdatedOn = DateTime.UtcNow;
-        }
+        
         public string CategoryName { get; set; }
 
         public void SetDetails(string name)
         {
             CategoryName = Guard.Against.NullOrEmpty(name);
+            UpdatedOn = DateTime.UtcNow;
         }
     }
 }

@@ -34,7 +34,8 @@ namespace Retail.Stock.UI
                 }
                 if (!string.IsNullOrEmpty(txtId.Text))
                 {
-                    var category = new Category(txtName.Text, Convert.ToInt32(txtId.Text));
+                    var category = _categoryRepository.GetById(Convert.ToInt32(txtId.Text));
+                    category.SetDetails(txtName.Text);
                     _categoryRepository.Update(category);
                 }
                 else
@@ -85,7 +86,7 @@ namespace Retail.Stock.UI
             }
         }
 
-      
+
         private void button2_Click(object sender, EventArgs e)
         {
             // Check if any row is selected
@@ -122,7 +123,7 @@ namespace Retail.Stock.UI
                 // Delete the row from the database
                 _categoryRepository.Delete(id);
 
-                
+
             }
 
             MessageBox.Show("Selected row(s) have been deleted successfully.");

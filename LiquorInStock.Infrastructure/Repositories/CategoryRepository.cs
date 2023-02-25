@@ -79,7 +79,7 @@ namespace Retail.Stock.Infrastructure.Repositories
             }
         }
 
-        public void Update(Category category)
+        public Category GetById(int id)
         {
             try
             {
@@ -89,11 +89,27 @@ namespace Retail.Stock.Infrastructure.Repositories
                     var categories = db.GetCollection<Category>("Categories");
 
                     // select the category to update
-                    var entity = categories.FindOne(c => c.Id == category.Id);
+                    return categories.FindOne(c => c.Id == id);
+                }
 
-                    // update the category's name
-                    category.SetDetails(category.CategoryName);
+            }
+            catch (Exception ex)
+            {
 
+                _logger.LogError(ex, "{@id}", id);
+                throw;
+            }
+        }
+
+        public void Update(Category category)
+        {
+            try
+            {
+                using (var db = new LiteDatabase("Stock.db"))
+                {
+                    // get a reference to the collection
+                    var categories = db.GetCollection<Category>("Categories");
+                    
                     // update the category in the collection
                     categories.Update(category);
                 }

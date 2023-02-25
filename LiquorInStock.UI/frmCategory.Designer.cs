@@ -32,12 +32,12 @@
             Id = new DataGridViewTextBoxColumn();
             CategoryName = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            button2 = new Button();
             txtId = new TextBox();
             label2 = new Label();
             button1 = new Button();
             txtName = new TextBox();
             label1 = new Label();
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -79,6 +79,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 0;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(444, 173);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 6;
+            button2.Text = "Delete";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // txtId
             // 
@@ -122,16 +132,6 @@
             label1.Size = new Size(39, 15);
             label1.TabIndex = 0;
             label1.Text = "Name";
-            // 
-            // button2
-            // 
-            button2.Location = new Point(525, 130);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 6;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // frmCategory
             // 

@@ -8,6 +8,7 @@ namespace Retail.Stock.Application.Common
         public void Add(Category category);
         public void Update(Category category);
         public void Delete(int id);
+        public Category GetById(int id);
         public IEnumerable<Category> GetAll();
     }
 }
