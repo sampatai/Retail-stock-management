@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Retail.Stock.Application.Common;
 using Retail.Stock.Infrastructure.Repositories;
+using Retail.Stock.UI;
 
 namespace LiquorInStock.UI
 {
@@ -32,8 +33,10 @@ namespace LiquorInStock.UI
         {
             services.AddLogging(configure => configure.AddConsole())
                 .AddScoped<Main>()
-                .AddScoped<ICategoryRepository, CategoryRepository>();
-            
+                .AddScoped<ICategoryRepository, CategoryRepository>()
+                .AddScoped<frmCategory>();
+
+
         }
     }
 }

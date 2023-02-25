@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "DA9KMJmGEQiZc+URGhfUHNfi0/dzLUhWW7Vf0vc0UXOycJtVmT1UdYZXY57n7IohGX4gHUNr8UxaXM7RJOrnFw==",
+  "dgSpecHash": "vlW5g+ltUzkliG2kxfXs3mC6+HG6JGIJQyUiAGw/KCAKTqQcg19V232rnKi5oq+kxSSUH5OwteZGawsL2D63Mg==",
   "success": true,
-  "projectFilePath": "D:\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj",
+  "projectFilePath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\ardalis.guardclauses\\4.0.1\\ardalis.guardclauses.4.0.1.nupkg.sha512",
-    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\jetbrains.annotations\\2021.3.0\\jetbrains.annotations.2021.3.0.nupkg.sha512",
-    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\litedb\\5.0.15\\litedb.5.0.15.nupkg.sha512",
-    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
-    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
-    "C:\\Users\\sampat.adhikari\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+    "C:\\Users\\Lenovo\\.nuget\\packages\\ardalis.guardclauses\\4.0.1\\ardalis.guardclauses.4.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\jetbrains.annotations\\2021.3.0\\jetbrains.annotations.2021.3.0.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\litedb\\5.0.15\\litedb.5.0.15.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

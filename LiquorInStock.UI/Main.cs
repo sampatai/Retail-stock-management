@@ -1,4 +1,6 @@
 using Microsoft.Extensions.Logging;
+using Retail.Stock.Application.Common;
+using Retail.Stock.UI;
 
 namespace LiquorInStock.UI
 {
@@ -6,14 +8,17 @@ namespace LiquorInStock.UI
     {
         //public Form1()
         //{
-            
+
 
         //}
+        private readonly ICategoryRepository _categoryRepository;
         private readonly ILogger _logger;
-        public Main(ILogger<Main> logger)
+        public Main(ILogger<Main> logger,
+            ICategoryRepository categoryRepository)
         {
             InitializeComponent();
             _logger = logger;
+            _categoryRepository = categoryRepository;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,19 +38,22 @@ namespace LiquorInStock.UI
             }
         }
 
-        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void Main_Load(object sender, EventArgs e)
         {
+            // Create an instance of the first child form
+            frmCategory childForm1 = new frmCategory(_categoryRepository);
+            childForm1.TopLevel = false;
+            childForm1.FormBorderStyle = FormBorderStyle.None;
+            childForm1.Dock = DockStyle.Fill;
 
-        }
+            // Create a new tab page and add the first child form to it
+            TabPage tabPage1 = new TabPage("Category");
+            tabPage1.Controls.Add(childForm1);
+            tabControl1.TabPages.Add(tabPage1);
 
-        private void productToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dailySalesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            // Show the first child form
+            childForm1.Show();
         }
     }
 }

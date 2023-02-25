@@ -11,10 +11,9 @@ namespace Retail.Stock.Domain.Aggregates.Category
         public Category(string name)
         {
             Id = ObjectId.NewObjectId();
-            GUID = Guid.NewGuid();
             Name = Guard.Against.NullOrEmpty(name);
         }
-        public Guid GUID { get; set; }
+       
         public string Name { get; set; }
 
         public void SetDetails(string name)

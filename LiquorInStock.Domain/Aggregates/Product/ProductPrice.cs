@@ -14,23 +14,17 @@ namespace Retail.Stock.Domain.Aggregates.Product
             decimal pricePerQuantity
             )
         {
-            Id = ObjectId.NewObjectId();
-            GUID = Guid.NewGuid();
+            Id = ObjectId.NewObjectId();          
             ProductId = Guard.Against.NegativeOrZero(productId);
             Price = Guard.Against.NegativeOrZero(price);
-            PricePerQuantity = Guard.Against.NegativeOrZero(pricePerQuantity);
+            SellingPrice = Guard.Against.NegativeOrZero(pricePerQuantity);
             Quantity = Guard.Against.NegativeOrZero(quantity);
         }
-
-        public Guid GUID { get; private set; }
+        
         public int ProductId { get; private set; }
-        public int Quantity { get; private set; }
-        public int? BoxOrPacketQuantity { get; private set; }
-        public decimal Price { get; private set; }
-        public decimal? BoxOrPacketSellingPrice { get; private set; }
-        public decimal PricePerQuantity { get; private set; }
-
-        public int? PerBoxOrPacketQuantity { get; set; }
+        public int Quantity { get; private set; }      
+        public decimal Price { get; private set; }     
+        public decimal SellingPrice { get; private set; }
 
         public void SetDetail(int productId,
             int quantity,
@@ -39,28 +33,10 @@ namespace Retail.Stock.Domain.Aggregates.Product
         {
             ProductId = Guard.Against.NegativeOrZero(productId);
             Price = Guard.Against.NegativeOrZero(price);
-            PricePerQuantity = Guard.Against.NegativeOrZero(pricePerQuantity);
+            SellingPrice = Guard.Against.NegativeOrZero(pricePerQuantity);
             Quantity = Guard.Against.NegativeOrZero(quantity);
 
         }
-        public void SetBoxOrPacketQuantity(int quantity)
-        {
-            BoxOrPacketQuantity = Guard.Against.NegativeOrZero(quantity);
-        }
-
-        public void SetBoxOrPacketSellingPrice(decimal price)
-        {
-            BoxOrPacketSellingPrice = Guard.Against.NegativeOrZero(price);
-        }
-
-        public void SetPerBoxOrPacketQuantity(int quantity)
-        {
-            PerBoxOrPacketQuantity = Guard.Against.NegativeOrZero(quantity);
-        }
-
-        public void TotalQuantity()
-        {
-            Quantity = BoxOrPacketQuantity.Value * PerBoxOrPacketQuantity.Value;
-        }
+       
     }
 }
