@@ -21,5 +21,83 @@ namespace Retail.Stock.UI
             InitializeComponent();
             _productRepository = productRepository;
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedValue = cmbType.SelectedItem?.ToString();
+            if (selectedValue == "Carton")
+            {
+                txtPerQuantity.Visible = true;
+                label3.Visible = true;
+                txtPerQuantity.Text = string.Empty;
+                txtCartonQuantity.Visible = true;
+                label4.Visible = true;
+                txtCartonQuantity.Text = string.Empty;
+
+                txtCartonPrice.Visible = true;
+                label2.Visible = true;
+                txtCartonPrice.Text = string.Empty;
+            }
+            else
+            {
+                txtPerQuantity.Visible = false;
+                label3.Visible = false;
+                txtPerQuantity.Text = string.Empty;
+
+                txtCartonQuantity.Visible = false;
+                label4.Visible = false;
+                txtCartonQuantity.Text = string.Empty;
+
+                txtCartonPrice.Visible = false;
+                label2.Visible = false;
+                txtCartonPrice.Text = string.Empty;
+            }
+        }
+
+        private void frmProductPrice_Load(object sender, EventArgs e)
+        {
+            cmbType.SelectedIndex = 0;
+        }
+
+        private void txtQuantity_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPerQuantity_TextChanged(object sender, EventArgs e)
+        {
+            var selectedValue = cmbType.SelectedItem?.ToString();
+            if (selectedValue == "Carton" && !string.IsNullOrEmpty(txtPerQuantity.Text)
+                && !string.IsNullOrEmpty(txtCartonQuantity.Text) && !string.IsNullOrEmpty(txtCartonPrice.Text))
+            {
+                int totalQuantity = (Convert.ToInt32(txtPerQuantity.Text) * Convert.ToInt32(txtCartonQuantity.Text));
+                txtQuantity.Text = totalQuantity.ToString();
+                txtPrice.Text = (Convert.ToDecimal(txtCartonPrice.Text) / Convert.ToDecimal(totalQuantity)).ToString("F2");
+            }
+        }
+
+        private void txtCartonQuantity_Click(object sender, EventArgs e)
+        {
+            var selectedValue = cmbType.SelectedItem?.ToString();
+            if (selectedValue == "Carton" && !string.IsNullOrEmpty(txtCartonQuantity.Text)
+                && !string.IsNullOrEmpty(txtPerQuantity.Text) && !string.IsNullOrEmpty(txtCartonPrice.Text))
+            {
+                int totalQuantity = (Convert.ToInt32(txtCartonQuantity.Text) * Convert.ToInt32(txtPerQuantity.Text));
+               txtQuantity.Text = totalQuantity.ToString();
+                txtPrice.Text = (Convert.ToDecimal(txtCartonPrice.Text) / Convert.ToDecimal(totalQuantity)).ToString("F2");
+            }
+        }
+
+        private void txtCartonPrice_TextChanged(object sender, EventArgs e)
+        {
+            var selectedValue = cmbType.SelectedItem?.ToString();
+            if (selectedValue == "Carton" && !string.IsNullOrEmpty(txtCartonPrice.Text)
+                && !string.IsNullOrEmpty(txtPerQuantity.Text) && !string.IsNullOrEmpty(txtCartonQuantity.Text))
+            {
+                int totalQuantity = (Convert.ToInt32(txtCartonQuantity.Text) * Convert.ToInt32(txtPerQuantity.Text));
+                txtQuantity.Text = totalQuantity.ToString();
+                txtPrice.Text = (Convert.ToDecimal(txtCartonPrice.Text) / Convert.ToDecimal(totalQuantity)).ToString("F2");
+            }
+        }
     }
 }
