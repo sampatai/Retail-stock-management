@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            CategoryName = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             txtId = new TextBox();
             label2 = new Label();
             button1 = new Button();
             txtName = new TextBox();
             label1 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -42,14 +45,29 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(117, 233);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, CategoryName });
+            dataGridView1.Location = new Point(18, 202);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(501, 205);
             dataGridView1.TabIndex = 5;
+            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
+            // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            // 
+            // CategoryName
+            // 
+            CategoryName.DataPropertyName = "CategoryName";
+            CategoryName.HeaderText = "Category";
+            CategoryName.Name = "CategoryName";
             // 
             // panel1
             // 
+            panel1.Controls.Add(button2);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(txtId);
             panel1.Controls.Add(label2);
@@ -105,6 +123,16 @@
             label1.TabIndex = 0;
             label1.Text = "Name";
             // 
+            // button2
+            // 
+            button2.Location = new Point(525, 130);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 6;
+            button2.Text = "Delete";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // frmCategory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -129,5 +157,8 @@
         private Label label2;
         private TextBox txtId;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn CategoryName;
+        private Button button2;
     }
 }

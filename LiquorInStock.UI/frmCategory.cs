@@ -32,12 +32,22 @@ namespace Retail.Stock.UI
                 {
                     throw new Exception("Please enter a category name.");
                 }
-                var category = new Category(txtName.Text);
-                _categoryRepository.Add(category);
+                if (!string.IsNullOrEmpty(txtId.Text))
+                {
+                    var category = new Category(txtName.Text, Convert.ToInt32(txtId.Text));
+                    _categoryRepository.Update(category);
+                }
+                else
+                {
+                    var category = new Category(txtName.Text);
+                    _categoryRepository.Add(category);
+                }
+
                 MessageBox.Show("Category inserted successfully.");
                 LoadData();
                 // clear the form inputs
                 txtName.Clear();
+                txtId.Clear();
             }
             catch (Exception ex)
             {
@@ -54,20 +64,70 @@ namespace Retail.Stock.UI
         }
         private void LoadData()
         {
-            //DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
-            //column1.DataPropertyName = "Id";
-            //column1.HeaderText = "ID";
-            //column1.Name = "IdColumn";
-            //dataGridView1.Columns.Add(column1);
-
-            //DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
-            //column2.DataPropertyName = "Name";
-            //column2.HeaderText = "Name";
-            //column2.Name = "NameColumn";
-            //dataGridView1.Columns.Add(column2);
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.ReadOnly = true;
             var category = _categoryRepository.GetAll();
             dataGridView1.DataSource = category;
+
+
         }
+
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+
+                // Fill the text boxes with the values from the selected row
+                txtId.Text = row.Cells["Id"].Value.ToString();
+                txtName.Text = row.Cells["CategoryName"].Value.ToString();
+            }
+        }
+
+      
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Check if any row is selected
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to delete.");
+                return;
+            }
+
+            // Display confirmation message with selected row(s) details
+            string message = "";
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                // Get the row data
+                int id = Convert.ToInt32(row.Cells["Id"].Value);
+                string name = row.Cells["CategoryName"].Value.ToString();
+
+                // Append the row data to the confirmation message
+                message += $"Id: {id}, Name: {name}\n";
+            }
+
+            // Display the confirmation message
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete the following row(s)?\n\n{message}", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            // Delete the selected row(s) from the DataGridView and the database
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                int id = Convert.ToInt32(row.Cells["Id"].Value);
+
+                // Delete the row from the database
+                _categoryRepository.Delete(id);
+
+                
+            }
+
+            MessageBox.Show("Selected row(s) have been deleted successfully.");
+            LoadData();
+        }
+
     }
 }

@@ -38,7 +38,27 @@ namespace Retail.Stock.Infrastructure.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var db = new LiteDatabase(@"Stock.db"))
+                {
+                    var categoryCollection = db.GetCollection<Category>("Categories");
+
+                    var categoryToDelete = categoryCollection.FindOne(x => x.Id == id);
+
+                    if (categoryToDelete != null)
+                    {
+                        categoryCollection.Delete(categoryToDelete.Id);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "{@id}", id);
+
+                throw;
+            }
+
         }
 
         public IEnumerable<Category> GetAll()
@@ -50,10 +70,10 @@ namespace Retail.Stock.Infrastructure.Repositories
                 var categories = db.GetCollection<Category>("Categories");
 
                 // select all categories
-                var results = categories.FindAll().ToList();
-                
-      
-                return results;
+                var results = categories.FindAll();
+
+
+                return results.ToList(); ;
                 // select a specific category by name
 
             }
@@ -69,10 +89,10 @@ namespace Retail.Stock.Infrastructure.Repositories
                     var categories = db.GetCollection<Category>("Categories");
 
                     // select the category to update
-                    var entity = categories.FindOne(c => c.Id.Increment == category.Id.Increment);
+                    var entity = categories.FindOne(c => c.Id == category.Id);
 
                     // update the category's name
-                    category.SetDetails(category.Name);
+                    category.SetDetails(category.CategoryName);
 
                     // update the category in the collection
                     categories.Update(category);

@@ -14,7 +14,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
             decimal pricePerQuantity
             )
         {
-            Id = ObjectId.NewObjectId();          
+            Id = ObjectId.NewObjectId().Increment;          
             ProductId = Guard.Against.NegativeOrZero(productId);
             Price = Guard.Against.NegativeOrZero(price);
             SellingPrice = Guard.Against.NegativeOrZero(pricePerQuantity);

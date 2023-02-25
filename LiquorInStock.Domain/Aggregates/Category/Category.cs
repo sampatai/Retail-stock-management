@@ -8,17 +8,23 @@ namespace Retail.Stock.Domain.Aggregates.Category
         {
 
         }
-        public Category(string name)
+        public Category(string categoryName)
         {
-            Id = ObjectId.NewObjectId();
-            Name = Guard.Against.NullOrEmpty(name);
+            Id = ObjectId.NewObjectId().Increment;
+            CategoryName = Guard.Against.NullOrEmpty(categoryName);
+            AddedOn = DateTime.UtcNow;
         }
-       
-        public string Name { get; set; }
+        public Category(string categoryName, int id)
+        {
+            Id = id;
+            CategoryName = Guard.Against.NullOrEmpty(categoryName);
+            UpdatedOn = DateTime.UtcNow;
+        }
+        public string CategoryName { get; set; }
 
         public void SetDetails(string name)
         {
-            Name = Guard.Against.NullOrEmpty(name);
+            CategoryName = Guard.Against.NullOrEmpty(name);
         }
     }
 }

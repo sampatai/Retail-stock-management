@@ -9,7 +9,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
 
         public Product(int categoryId, string name)
         {
-            Id = ObjectId.NewObjectId();          
+            Id = ObjectId.NewObjectId().Increment;          
             CategoryId = Guard.Against.NegativeOrZero(categoryId);
             Name = name;
 
@@ -28,7 +28,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
             decimal price,
             decimal sellingPrice)
         {
-            ProductPrice productPrices = new(this.Id.Increment, quantity, price, sellingPrice);           
+            ProductPrice productPrices = new(this.Id, quantity, price, sellingPrice);           
             _ProductPrice.Add(productPrices);
          
         }

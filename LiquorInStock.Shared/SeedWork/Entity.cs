@@ -5,8 +5,8 @@ namespace Retail.Stock.Shared.SeedWork
     public abstract class Entity
     {
         int? _requestedHashCode;
-        ObjectId _Id;
-        public virtual ObjectId Id
+        int _Id;
+        public virtual int Id
         {
             get => _Id;
             protected set => _Id = value;
@@ -20,7 +20,7 @@ namespace Retail.Stock.Shared.SeedWork
         public void ClearDomainEvents() => _domainEvents?.Clear();
 
 
-        public bool IsTransient() => this.Id == default(ObjectId);
+        public bool IsTransient() => this.Id == default(Int32);
 
         public override bool Equals(object obj)
         {
