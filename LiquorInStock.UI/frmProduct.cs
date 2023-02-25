@@ -94,7 +94,7 @@ namespace Retail.Stock.UI
             // dataGridView1.AutoGenerateColumns = false;
             // Show the row numbers
 
-
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.CellFormatting += (sender, e) =>
             {
                 if (e.ColumnIndex == 0 && e.RowIndex >= 0)
@@ -158,10 +158,14 @@ namespace Retail.Stock.UI
             try
             {
                 Category selectedCategory = (Category)cmbCategory.SelectedItem;
+                if (selectedCategory is null)
+                {
+                    throw new Exception("Please enter a category.");
+                }
                 // validate the form inputs
                 if (string.IsNullOrWhiteSpace(txtName.Text))
                 {
-                    throw new Exception("Please enter a category name.");
+                    throw new Exception("Please enter a  name.");
                 }
                 if (!string.IsNullOrEmpty(TxtId.Text))
                 {
@@ -216,12 +220,22 @@ namespace Retail.Stock.UI
                 cmbCategory.SelectedItem = product.CategoryName;
             }
         }
+        private void AdjustDataGridViewHeight()
+        {
+            const int rowHeight = 22; // Height of a single row
+            const int headerHeight = 24; // Height of the column headers
+            const int rowCount = 10; // Maximum number of rows to display
 
+            int totalRowHeight = (rowCount * rowHeight) + headerHeight;
+            dataGridView1.Height = totalRowHeight;
+        }
         private void button6_Click(object sender, EventArgs e)
         {
             Category selectedCategory = (Category)cmbCategory.SelectedItem;
-
-            LoadData(selectedCategory.Id, txtName.Text);
+            if (selectedCategory is not null)
+                LoadData(selectedCategory.Id, txtName.Text);
+            else
+                LoadData(null, txtName.Text);
         }
 
         private void button5_Click(object sender, EventArgs e)

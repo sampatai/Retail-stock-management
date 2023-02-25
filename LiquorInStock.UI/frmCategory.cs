@@ -70,7 +70,7 @@ namespace Retail.Stock.UI
             var category = _categoryRepository.GetAll();
             dataGridView1.DataSource = category;
 
-
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
 

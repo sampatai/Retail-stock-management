@@ -14,32 +14,21 @@ namespace LiquorInStock.UI
         private readonly ICategoryRepository _categoryRepository;
         private readonly ILogger _logger;
         private readonly IProductRepository _productRepository;
+        private readonly IProductPriceRepository _productPriceRepository;
         public Main(ILogger<Main> logger,
             ICategoryRepository categoryRepository,
-            IProductRepository productRepository)
+            IProductRepository productRepository,
+            IProductPriceRepository productPriceRepository)
         {
             InitializeComponent();
+            Size = new Size(1200, 800);
             _logger = logger;
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
+            _productPriceRepository = productPriceRepository;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                _logger.LogInformation("Form1 {BusinessLayerEvent} at {dateTime}", "Started", DateTime.UtcNow);
-                // Perform Business Logic here 
 
-                MessageBox.Show("Hello .NET Core 3.1.This is First Forms app in .NET Core");
-                _logger.LogInformation("Form1 {BusinessLayerEvent} at {dateTime}", "Ended", DateTime.UtcNow);
-            }
-            catch (Exception ex)
-            {
-                //Log technical exception 
-                _logger.LogError(ex.Message);
-            }
-        }
 
 
         private void Main_Load(object sender, EventArgs e)
@@ -71,6 +60,19 @@ namespace LiquorInStock.UI
 
             // Show the first child form
             childForm2.Show();
+
+            frmProductPrice childForm3 = new frmProductPrice(_productPriceRepository, _productRepository);
+            childForm3.TopLevel = false;
+            childForm3.FormBorderStyle = FormBorderStyle.None;
+            childForm3.Dock = DockStyle.Fill;
+
+            // Create a new tab page and add the first child form to it
+            TabPage tabPage3 = new TabPage("Product Purchase");
+            tabPage3.Controls.Add(childForm3);
+            tabControl1.TabPages.Add(tabPage3);
+
+            // Show the first child form
+            childForm3.Show();
         }
     }
 }

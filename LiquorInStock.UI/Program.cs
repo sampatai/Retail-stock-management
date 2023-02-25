@@ -42,6 +42,7 @@ namespace LiquorInStock.UI
 
             services.AddScoped<IProductRepository, ProductRepository>().AddScoped<frmProduct>();
 
+            services.AddScoped<IProductPriceRepository, ProductPriceRepository>().AddScoped<frmProductPrice>();
 
         }
     }

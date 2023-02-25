@@ -29,15 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            cmbCategory = new ComboBox();
-            label1 = new Label();
             categoryRepositoryBindingSource = new BindingSource(components);
-            label2 = new Label();
-            txtName = new TextBox();
-            button1 = new Button();
-            dataGridView1 = new DataGridView();
-            TxtId = new TextBox();
-            label3 = new Label();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             btnFirstPage = new Button();
@@ -47,92 +39,33 @@
             button4 = new Button();
             button5 = new Button();
             panel1 = new Panel();
+            panel2 = new Panel();
+            label3 = new Label();
+            TxtId = new TextBox();
+            button1 = new Button();
+            txtName = new TextBox();
+            label2 = new Label();
+            label1 = new Label();
+            cmbCategory = new ComboBox();
             button6 = new Button();
+            panel3 = new Panel();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)categoryRepositoryBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             statusStrip1.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // cmbCategory
-            // 
-            cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(276, 45);
-            cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(229, 23);
-            cmbCategory.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(215, 48);
-            label1.Name = "label1";
-            label1.Size = new Size(55, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Category";
             // 
             // categoryRepositoryBindingSource
             // 
             categoryRepositoryBindingSource.DataSource = typeof(Infrastructure.Repositories.CategoryRepository);
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(215, 88);
-            label2.Name = "label2";
-            label2.Size = new Size(39, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Name";
-            // 
-            // txtName
-            // 
-            txtName.Location = new Point(276, 80);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(229, 23);
-            txtName.TabIndex = 3;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(430, 138);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "Save";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Bottom;
-            dataGridView1.Location = new Point(0, 308);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(800, 147);
-            dataGridView1.TabIndex = 5;
-            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
-            // 
-            // TxtId
-            // 
-            TxtId.Location = new Point(280, 16);
-            TxtId.Name = "TxtId";
-            TxtId.ReadOnly = true;
-            TxtId.Size = new Size(100, 23);
-            TxtId.TabIndex = 6;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(213, 19);
-            label3.Name = "label3";
-            label3.Size = new Size(17, 15);
-            label3.TabIndex = 7;
-            label3.Text = "Id";
-            // 
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 286);
+            statusStrip1.Location = new Point(0, 433);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(800, 22);
             statusStrip1.TabIndex = 8;
@@ -185,7 +118,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(8, 15);
+            button4.Location = new Point(3, 10);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 13;
@@ -195,7 +128,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(89, 15);
+            button5.Location = new Point(84, 10);
             button5.Name = "button5";
             button5.Size = new Size(75, 23);
             button5.TabIndex = 14;
@@ -205,67 +138,149 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(button5);
             panel1.Controls.Add(button3);
-            panel1.Controls.Add(button4);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(btnFirstPage);
             panel1.Controls.Add(BtnPreviousPage);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 245);
+            panel1.Location = new Point(0, 392);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 41);
             panel1.TabIndex = 15;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(TxtId);
+            panel2.Controls.Add(button1);
+            panel2.Controls.Add(txtName);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(cmbCategory);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(800, 200);
+            panel2.TabIndex = 16;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(238, 37);
+            label3.Name = "label3";
+            label3.Size = new Size(17, 15);
+            label3.TabIndex = 23;
+            label3.Text = "Id";
+            // 
+            // TxtId
+            // 
+            TxtId.Location = new Point(305, 34);
+            TxtId.Name = "TxtId";
+            TxtId.ReadOnly = true;
+            TxtId.Size = new Size(100, 23);
+            TxtId.TabIndex = 22;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(435, 137);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 21;
+            button1.Text = "Save";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(301, 98);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(229, 23);
+            txtName.TabIndex = 20;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(240, 106);
+            label2.Name = "label2";
+            label2.Size = new Size(39, 15);
+            label2.TabIndex = 19;
+            label2.Text = "Name";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(240, 66);
+            label1.Name = "label1";
+            label1.Size = new Size(55, 15);
+            label1.TabIndex = 18;
+            label1.Text = "Category";
+            // 
+            // cmbCategory
+            // 
+            cmbCategory.FormattingEnabled = true;
+            cmbCategory.Location = new Point(301, 63);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.Size = new Size(229, 23);
+            cmbCategory.TabIndex = 17;
+            // 
             // button6
             // 
-            button6.Location = new Point(339, 138);
+            button6.Location = new Point(189, 10);
             button6.Name = "button6";
             button6.Size = new Size(75, 23);
-            button6.TabIndex = 16;
+            button6.TabIndex = 24;
             button6.Text = "Search";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(button6);
+            panel3.Controls.Add(button5);
+            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(button4);
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(0, 206);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(800, 186);
+            panel3.TabIndex = 17;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Bottom;
+            dataGridView1.Location = new Point(0, 39);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(800, 147);
+            dataGridView1.TabIndex = 6;
             // 
             // frmProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 455);
-            Controls.Add(button6);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(statusStrip1);
-            Controls.Add(label3);
-            Controls.Add(TxtId);
-            Controls.Add(dataGridView1);
-            Controls.Add(button1);
-            Controls.Add(txtName);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(cmbCategory);
             Name = "frmProduct";
             Text = "frmProduct";
             Load += frmProduct_Load;
             ((System.ComponentModel.ISupportInitialize)categoryRepositoryBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ComboBox cmbCategory;
-        private Label label1;
         private BindingSource categoryRepositoryBindingSource;
-        private Label label2;
-        private TextBox txtName;
-        private Button button1;
-        private DataGridView dataGridView1;
-        private TextBox TxtId;
-        private Label label3;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private Button btnFirstPage;
@@ -275,6 +290,16 @@
         private Button button4;
         private Button button5;
         private Panel panel1;
+        private Panel panel2;
         private Button button6;
+        private Label label3;
+        private TextBox TxtId;
+        private Button button1;
+        private TextBox txtName;
+        private Label label2;
+        private Label label1;
+        private ComboBox cmbCategory;
+        private Panel panel3;
+        private DataGridView dataGridView1;
     }
 }

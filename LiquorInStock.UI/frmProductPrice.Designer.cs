@@ -1,6 +1,6 @@
 ﻿namespace Retail.Stock.UI
 {
-    partial class ProductPrice
+    partial class frmProductPrice
     {
         /// <summary>
         /// Required designer variable.
