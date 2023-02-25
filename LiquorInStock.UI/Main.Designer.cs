@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.SuspendLayout();
+            tabControl1 = new TabControl();
+            SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Location = new System.Drawing.Point(1, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(787, 437);
-            this.tabControl1.TabIndex = 2;
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(800, 450);
+            tabControl1.TabIndex = 2;
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
-            this.Name = "Main";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Main_Load);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(tabControl1);
+            Name = "Main";
+            Text = "Form1";
+            Load += Main_Load;
+            ResumeLayout(false);
         }
 
         #endregion

@@ -36,10 +36,11 @@
             BtnPreviousPage = new Button();
             button2 = new Button();
             button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
             panel1 = new Panel();
+            button5 = new Button();
+            button4 = new Button();
             panel2 = new Panel();
+            button6 = new Button();
             label3 = new Label();
             TxtId = new TextBox();
             button1 = new Button();
@@ -47,7 +48,6 @@
             label2 = new Label();
             label1 = new Label();
             cmbCategory = new ComboBox();
-            button6 = new Button();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)categoryRepositoryBindingSource).BeginInit();
@@ -116,28 +116,10 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += btnLastPage_Click;
             // 
-            // button4
-            // 
-            button4.Location = new Point(3, 10);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 13;
-            button4.Text = "Refresh";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(84, 10);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 14;
-            button5.Text = "Delete";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
             // panel1
             // 
+            panel1.Controls.Add(button5);
+            panel1.Controls.Add(button4);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(btnFirstPage);
@@ -148,8 +130,29 @@
             panel1.Size = new Size(800, 41);
             panel1.TabIndex = 15;
             // 
+            // button5
+            // 
+            button5.Location = new Point(84, 15);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 16;
+            button5.Text = "Delete";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(3, 15);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 15;
+            button4.Text = "Refresh";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // panel2
             // 
+            panel2.Controls.Add(button6);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(TxtId);
             panel2.Controls.Add(button1);
@@ -162,6 +165,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(800, 200);
             panel2.TabIndex = 16;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(345, 137);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 24;
+            button6.Text = "Search";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // label3
             // 
@@ -223,42 +236,31 @@
             cmbCategory.Size = new Size(229, 23);
             cmbCategory.TabIndex = 17;
             // 
-            // button6
-            // 
-            button6.Location = new Point(189, 10);
-            button6.Name = "button6";
-            button6.Size = new Size(75, 23);
-            button6.TabIndex = 24;
-            button6.Text = "Search";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
             // panel3
             // 
-            panel3.Controls.Add(button6);
-            panel3.Controls.Add(button5);
             panel3.Controls.Add(dataGridView1);
-            panel3.Controls.Add(button4);
-            panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(0, 206);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(0, 200);
             panel3.Name = "panel3";
-            panel3.Size = new Size(800, 186);
+            panel3.Size = new Size(800, 192);
             panel3.TabIndex = 17;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Bottom;
-            dataGridView1.Location = new Point(0, 39);
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(800, 147);
+            dataGridView1.Size = new Size(800, 192);
             dataGridView1.TabIndex = 6;
             // 
             // frmProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            AutoSize = true;
             ClientSize = new Size(800, 455);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -287,11 +289,8 @@
         private Button BtnPreviousPage;
         private Button button2;
         private Button button3;
-        private Button button4;
-        private Button button5;
         private Panel panel1;
         private Panel panel2;
-        private Button button6;
         private Label label3;
         private TextBox TxtId;
         private Button button1;
@@ -299,7 +298,10 @@
         private Label label2;
         private Label label1;
         private ComboBox cmbCategory;
+        private Button button6;
         private Panel panel3;
         private DataGridView dataGridView1;
+        private Button button5;
+        private Button button4;
     }
 }
