@@ -13,6 +13,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
             Id = ObjectId.NewObjectId().Increment;
             CategoryId = Guard.Against.NegativeOrZero(categoryId);
             ProductName = Guard.Against.NullOrEmpty(productName);
+            AddedOn=DateTime.UtcNow;
 
         }
 
@@ -29,7 +30,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
         {
             CategoryId = Guard.Against.NegativeOrZero(categoryId);
             ProductName = productName;
-
+            UpdatedOn= DateTime.UtcNow;
         }
 
 

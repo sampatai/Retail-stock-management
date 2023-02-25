@@ -42,6 +42,8 @@ namespace Retail.Stock.Infrastructure.Repositories
             using (var db = _databaseProvider.GetDatabase())
             {
 
+
+
                 var products = db.GetCollection<Product>();
                 if (!string.IsNullOrEmpty(product) && category is not null)
                 {
@@ -49,7 +51,7 @@ namespace Retail.Stock.Infrastructure.Repositories
                           .Query()
                           .Where(s => s.ProductName.Equals(product)
                                      && s.CategoryId.Equals(category))
-                          .OrderBy(x => x.Id)
+                          .OrderByDescending(x => x.Id)
                           .Skip((pageIndex - 1) * pageSize)
                           .Limit(pageSize)
                           .ToList();
@@ -61,7 +63,7 @@ namespace Retail.Stock.Infrastructure.Repositories
                     var result = products
                          .Query()
                          .Where(s => s.CategoryId.Equals(category))
-                         .OrderBy(x => x.Id)
+                         .OrderByDescending(x => x.Id)
                          .Skip((pageIndex - 1) * pageSize)
                          .Limit(pageSize)
                          .ToList();
@@ -72,7 +74,7 @@ namespace Retail.Stock.Infrastructure.Repositories
                     var result = products
                         .Query()
                         .Where(s => s.ProductName.Equals(product))
-                        .OrderBy(x => x.Id)
+                        .OrderByDescending(x => x.Id)
                         .Skip((pageIndex - 1) * pageSize)
                         .Limit(pageSize)
                         .ToList();
@@ -82,7 +84,7 @@ namespace Retail.Stock.Infrastructure.Repositories
                 {
                     var result = products
                         .Query()
-                        .OrderBy(x => x.Id)
+                        .OrderByDescending(x => x.Id)
                         .Skip((pageIndex - 1) * pageSize)
                         .Limit(pageSize)
                         .ToList();

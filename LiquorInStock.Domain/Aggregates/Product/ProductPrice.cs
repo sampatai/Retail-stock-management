@@ -14,18 +14,20 @@ namespace Retail.Stock.Domain.Aggregates.Product
             decimal pricePerQuantity
             )
         {
-            Id = ObjectId.NewObjectId().Increment;          
+            Id = ObjectId.NewObjectId().Increment;
             ProductId = Guard.Against.NegativeOrZero(productId);
             Price = Guard.Against.NegativeOrZero(price);
             SellingPrice = Guard.Against.NegativeOrZero(pricePerQuantity);
             Quantity = Guard.Against.NegativeOrZero(quantity);
+            AddedOn=DateTime.UtcNow;
         }
-        
-        public int ProductId { get; private set; }
-        public int Quantity { get; private set; }      
-        public decimal Price { get; private set; }     
-        public decimal SellingPrice { get; private set; }
 
+        public int ProductId { get; private set; }
+        public int Quantity { get; private set; }
+        public decimal Price { get; private set; }
+        public decimal SellingPrice { get; private set; }
+        private List<Product> _products;
+        public IReadOnlyCollection<Product> Products => _products.AsReadOnly();
         public void SetDetail(int productId,
             int quantity,
             decimal price,
@@ -35,8 +37,8 @@ namespace Retail.Stock.Domain.Aggregates.Product
             Price = Guard.Against.NegativeOrZero(price);
             SellingPrice = Guard.Against.NegativeOrZero(pricePerQuantity);
             Quantity = Guard.Against.NegativeOrZero(quantity);
-
+            UpdatedOn= DateTime.UtcNow;
         }
-       
+
     }
 }
