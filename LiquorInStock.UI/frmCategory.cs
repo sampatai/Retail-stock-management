@@ -74,17 +74,6 @@ namespace Retail.Stock.UI
         }
 
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-
-                // Fill the text boxes with the values from the selected row
-                txtId.Text = row.Cells["Id"].Value.ToString();
-                txtName.Text = row.Cells["CategoryName"].Value.ToString();
-            }
-        }
 
 
         private void button2_Click(object sender, EventArgs e)
@@ -130,5 +119,21 @@ namespace Retail.Stock.UI
             LoadData();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+
+                // Fill the text boxes with the values from the selected row
+                txtId.Text = row.Cells["Id"].Value.ToString();
+                txtName.Text = row.Cells["CategoryName"].Value.ToString();
+            }
+        }
     }
 }

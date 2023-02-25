@@ -13,12 +13,15 @@ namespace LiquorInStock.UI
         //}
         private readonly ICategoryRepository _categoryRepository;
         private readonly ILogger _logger;
+        private readonly IProductRepository _productRepository;
         public Main(ILogger<Main> logger,
-            ICategoryRepository categoryRepository)
+            ICategoryRepository categoryRepository,
+            IProductRepository productRepository)
         {
             InitializeComponent();
             _logger = logger;
             _categoryRepository = categoryRepository;
+            _productRepository = productRepository;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,6 +57,20 @@ namespace LiquorInStock.UI
 
             // Show the first child form
             childForm1.Show();
+
+            // Create an instance of the first child form
+            frmProduct childForm2 = new frmProduct(_categoryRepository, _productRepository);
+            childForm2.TopLevel = false;
+            childForm2.FormBorderStyle = FormBorderStyle.None;
+            childForm2.Dock = DockStyle.Fill;
+
+            // Create a new tab page and add the first child form to it
+            TabPage tabPage2 = new TabPage("Product");
+            tabPage2.Controls.Add(childForm2);
+            tabControl1.TabPages.Add(tabPage2);
+
+            // Show the first child form
+            childForm2.Show();
         }
     }
 }

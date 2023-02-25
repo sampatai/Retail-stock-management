@@ -1,6 +1,9 @@
 ﻿namespace Retail.Stock.Shared.SeedWork
 {
-   
-    public interface IAggregateRoot { }
+
+    public interface IAggregateRoot
+    {
+       
+    }
 
 }

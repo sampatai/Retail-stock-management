@@ -19,4 +19,8 @@
     <ProjectReference Include="..\LiquorInStock.Infrastructure\Retail.Stock.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+
 </Project>

@@ -87,3 +87,4 @@ C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net
 C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.genruntimeconfig.cache
 C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\ref\Retail.Stock.UI.dll
 C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.frmCategory.resources
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.frmProduct.resources

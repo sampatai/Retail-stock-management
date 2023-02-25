@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Retail.Stock.Application.Common;
 using Retail.Stock.Infrastructure.Repositories;
+using Retail.Stock.Shared.SeedWork;
 using Retail.Stock.UI;
 
 namespace LiquorInStock.UI
@@ -31,10 +32,15 @@ namespace LiquorInStock.UI
         }
         private static void ConfigureServices(ServiceCollection services)
         {
+            services.AddSingleton<ILiteDatabaseProvider>(new FileBasedLiteDatabaseProvider("Stock.db"));
+
+
             services.AddLogging(configure => configure.AddConsole())
                 .AddScoped<Main>()
                 .AddScoped<ICategoryRepository, CategoryRepository>()
                 .AddScoped<frmCategory>();
+
+            services.AddScoped<IProductRepository, ProductRepository>().AddScoped<frmProduct>();
 
 
         }

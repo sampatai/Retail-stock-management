@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace Retail.Stock.Domain.Aggregates.Product
 {
-    public class ProductPrice : AuditableEntity
+    public class ProductPrice : AuditableEntity, IAggregateRoot
     {
         protected ProductPrice() { }
 

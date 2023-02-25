@@ -9,9 +9,11 @@ namespace Retail.Stock.Infrastructure.Repositories
     public class CategoryRepository : ICategoryRepository
     {
         private readonly ILogger<CategoryRepository> _logger;
-        public CategoryRepository(ILogger<CategoryRepository> logger)
+        private readonly ILiteDatabaseProvider _databaseProvider;
+        public CategoryRepository(ILogger<CategoryRepository> logger, ILiteDatabaseProvider databaseProvider)
         {
             _logger = logger;
+            _databaseProvider = databaseProvider;
         }
 
         public void Add(Category category)
@@ -20,7 +22,7 @@ namespace Retail.Stock.Infrastructure.Repositories
             {
 
                 // create a new instance of LiteDatabase
-                using (var db = new LiteDatabase("Stock.db"))
+                using (var db = _databaseProvider.GetDatabase())
                 {
                     // get a reference to the collection
                     var categories = db.GetCollection<Category>("Categories");
@@ -40,7 +42,7 @@ namespace Retail.Stock.Infrastructure.Repositories
         {
             try
             {
-                using (var db = new LiteDatabase(@"Stock.db"))
+                using (var db = _databaseProvider.GetDatabase())
                 {
                     var categoryCollection = db.GetCollection<Category>("Categories");
 
@@ -64,7 +66,7 @@ namespace Retail.Stock.Infrastructure.Repositories
         public IEnumerable<Category> GetAll()
         {
             // create a new instance of LiteDatabase
-            using (var db = new LiteDatabase("Stock.db"))
+            using (var db = _databaseProvider.GetDatabase())
             {
                 // get a reference to the collection
                 var categories = db.GetCollection<Category>("Categories");
@@ -83,7 +85,7 @@ namespace Retail.Stock.Infrastructure.Repositories
         {
             try
             {
-                using (var db = new LiteDatabase("Stock.db"))
+                using (var db = _databaseProvider.GetDatabase())
                 {
                     // get a reference to the collection
                     var categories = db.GetCollection<Category>("Categories");
@@ -105,7 +107,7 @@ namespace Retail.Stock.Infrastructure.Repositories
         {
             try
             {
-                using (var db = new LiteDatabase("Stock.db"))
+                using (var db = _databaseProvider.GetDatabase())
                 {
                     // get a reference to the collection
                     var categories = db.GetCollection<Category>("Categories");

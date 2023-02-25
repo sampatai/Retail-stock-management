@@ -32,26 +32,30 @@
             Id = new DataGridViewTextBoxColumn();
             CategoryName = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            button3 = new Button();
             button2 = new Button();
             txtId = new TextBox();
             label2 = new Label();
             button1 = new Button();
             txtName = new TextBox();
             label1 = new Label();
+            panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, CategoryName });
-            dataGridView1.Location = new Point(18, 202);
+            dataGridView1.Dock = DockStyle.Bottom;
+            dataGridView1.Location = new Point(0, 245);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(501, 205);
+            dataGridView1.Size = new Size(800, 205);
             dataGridView1.TabIndex = 5;
-            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // Id
             // 
@@ -67,7 +71,7 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(txtId);
             panel1.Controls.Add(label2);
@@ -80,9 +84,19 @@
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 0;
             // 
+            // button3
+            // 
+            button3.Location = new Point(0, 3);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 7;
+            button3.Text = "Refresh";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // button2
             // 
-            button2.Location = new Point(444, 173);
+            button2.Location = new Point(78, 3);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 6;
@@ -133,6 +147,16 @@
             label1.TabIndex = 0;
             label1.Text = "Name";
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(button3);
+            panel2.Controls.Add(button2);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 198);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(800, 47);
+            panel2.TabIndex = 8;
+            // 
             // frmCategory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -145,6 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -160,5 +185,7 @@
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn CategoryName;
         private Button button2;
+        private Button button3;
+        private Panel panel2;
     }
 }
