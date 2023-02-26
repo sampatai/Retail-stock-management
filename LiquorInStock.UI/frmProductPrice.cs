@@ -289,6 +289,7 @@ namespace Retail.Stock.UI
         {
             dateTimePicker1.Value = _startDate; dateTimePicker2.Value = _endDate;
             comboBox1.SelectedIndex = -1;
+            _LoadProduct();
             comboBox1.Refresh();
             cmbProduct.Refresh();
             txId.Clear();

@@ -213,6 +213,7 @@ namespace Retail.Stock.UI
             dateTimePicker1.Value = _startDate; dateTimePicker2.Value = _endDate;
             comboBox1.SelectedIndex = -1;
             comboBox1.Refresh();
+            _LoadProduct();
             cmbProduct.Refresh();
             txId.Clear();
             txtQuantity.Clear();
@@ -223,6 +224,7 @@ namespace Retail.Stock.UI
             txtPerQuantity.Clear();
             txtTotalPrice.Clear();
             cmbProduct.SelectedIndex = -1;
+            
             LoadData();
         }
 

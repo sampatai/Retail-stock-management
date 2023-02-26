@@ -23,6 +23,7 @@ namespace LiquorInStock.UI
             IProductSalesRepository productSalesRepository)
         {
             InitializeComponent();
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             Size = new Size(1200, 800);
 
             _categoryRepository = categoryRepository;
@@ -32,7 +33,31 @@ namespace LiquorInStock.UI
         }
 
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab.Text == "Product")
+            {
+                frmProduct childForm2 = (frmProduct)tabControl1.SelectedTab.Controls[0];
+                childForm2.Refresh();
+            }
+            else if (tabControl1.SelectedTab.Text == "Product Purchased")
+            {
+                frmProductPrice childForm3 = (frmProductPrice)tabControl1.SelectedTab.Controls[0];
+                childForm3.Refresh();
+            }
+           else if (tabControl1.SelectedTab.Text == "Category")
+            {
+                frmCategory childForm1 = (frmCategory)tabControl1.SelectedTab.Controls[0];
+                childForm1.Refresh();
+            }
+            else if (tabControl1.SelectedTab.Text == "Product Sales")
+            {
+                frmProductSales childForm1 = (frmProductSales)tabControl1.SelectedTab.Controls[0];
+                childForm1.Refresh();
+            }
 
+            // Add more else if statements for other child forms as needed
+        }
 
         private void Main_Load(object sender, EventArgs e)
         {

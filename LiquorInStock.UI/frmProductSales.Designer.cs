@@ -303,9 +303,9 @@
             // 
             panel5.Controls.Add(dataGridView1);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(0, 108);
+            panel5.Location = new Point(0, 86);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1211, 199);
+            panel5.Size = new Size(1211, 221);
             panel5.TabIndex = 1;
             // 
             // dataGridView1
@@ -315,7 +315,7 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1211, 199);
+            dataGridView1.Size = new Size(1211, 221);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
@@ -332,14 +332,14 @@
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1211, 108);
+            panel4.Size = new Size(1211, 86);
             panel4.TabIndex = 0;
             // 
             // lblTotalDisplay
             // 
             lblTotalDisplay.AutoSize = true;
             lblTotalDisplay.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point);
-            lblTotalDisplay.Location = new Point(765, 97);
+            lblTotalDisplay.Location = new Point(642, 50);
             lblTotalDisplay.Name = "lblTotalDisplay";
             lblTotalDisplay.Size = new Size(0, 21);
             lblTotalDisplay.TabIndex = 23;
