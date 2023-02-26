@@ -30,13 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             categoryRepositoryBindingSource = new BindingSource(components);
-            statusStrip1 = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
             btnFirstPage = new Button();
             BtnPreviousPage = new Button();
             button2 = new Button();
             button3 = new Button();
-            panel1 = new Panel();
             button5 = new Button();
             button4 = new Button();
             panel2 = new Panel();
@@ -50,35 +47,24 @@
             cmbCategory = new ComboBox();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
+            panel4 = new Panel();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)categoryRepositoryBindingSource).BeginInit();
-            statusStrip1.SuspendLayout();
-            panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel4.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // categoryRepositoryBindingSource
             // 
             categoryRepositoryBindingSource.DataSource = typeof(Infrastructure.Repositories.CategoryRepository);
             // 
-            // statusStrip1
-            // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 433);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 22);
-            statusStrip1.TabIndex = 8;
-            statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(0, 17);
-            // 
             // btnFirstPage
             // 
-            btnFirstPage.Location = new Point(435, 15);
+            btnFirstPage.Location = new Point(455, 6);
             btnFirstPage.Name = "btnFirstPage";
             btnFirstPage.Size = new Size(75, 23);
             btnFirstPage.TabIndex = 9;
@@ -88,7 +74,7 @@
             // 
             // BtnPreviousPage
             // 
-            BtnPreviousPage.Location = new Point(519, 15);
+            BtnPreviousPage.Location = new Point(539, 6);
             BtnPreviousPage.Name = "BtnPreviousPage";
             BtnPreviousPage.Size = new Size(75, 23);
             BtnPreviousPage.TabIndex = 10;
@@ -98,7 +84,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(604, 15);
+            button2.Location = new Point(624, 6);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 11;
@@ -108,7 +94,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(676, 15);
+            button3.Location = new Point(696, 6);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 12;
@@ -116,23 +102,9 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += btnLastPage_Click;
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(button5);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(btnFirstPage);
-            panel1.Controls.Add(BtnPreviousPage);
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 392);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(800, 41);
-            panel1.TabIndex = 15;
-            // 
             // button5
             // 
-            button5.Location = new Point(84, 15);
+            button5.Location = new Point(104, 6);
             button5.Name = "button5";
             button5.Size = new Size(75, 23);
             button5.TabIndex = 16;
@@ -142,7 +114,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(3, 15);
+            button4.Location = new Point(23, 6);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 15;
@@ -239,21 +211,52 @@
             // panel3
             // 
             panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(panel4);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 200);
             panel3.Name = "panel3";
-            panel3.Size = new Size(800, 192);
+            panel3.Size = new Size(800, 255);
             panel3.TabIndex = 17;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Location = new Point(0, 52);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(800, 192);
+            dataGridView1.Size = new Size(800, 203);
             dataGridView1.TabIndex = 6;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(statusStrip1);
+            panel4.Controls.Add(button5);
+            panel4.Controls.Add(button3);
+            panel4.Controls.Add(button4);
+            panel4.Controls.Add(BtnPreviousPage);
+            panel4.Controls.Add(btnFirstPage);
+            panel4.Controls.Add(button2);
+            panel4.Dock = DockStyle.Top;
+            panel4.Location = new Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(800, 52);
+            panel4.TabIndex = 0;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 30);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.TabIndex = 17;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(0, 17);
             // 
             // frmProduct
             // 
@@ -264,32 +267,27 @@
             ClientSize = new Size(800, 455);
             Controls.Add(panel3);
             Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(statusStrip1);
             Name = "frmProduct";
             Text = "frmProduct";
             Load += frmProduct_Load;
             ((System.ComponentModel.ISupportInitialize)categoryRepositoryBindingSource).EndInit();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
-            panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private BindingSource categoryRepositoryBindingSource;
-        private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
         private Button btnFirstPage;
         private Button BtnPreviousPage;
         private Button button2;
         private Button button3;
-        private Panel panel1;
         private Panel panel2;
         private Label label3;
         private TextBox TxtId;
@@ -303,5 +301,8 @@
         private DataGridView dataGridView1;
         private Button button5;
         private Button button4;
+        private Panel panel4;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

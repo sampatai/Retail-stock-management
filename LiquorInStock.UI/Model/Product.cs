@@ -17,6 +17,7 @@ namespace Retail.Stock.UI.Model
         public decimal RetailPrice { get;  set; }
         public int StockIn { get; set; }
 
+
     }
 
     public class ProductPriceModel

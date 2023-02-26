@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             panel3 = new Panel();
             panel5 = new Panel();
             dataGridView1 = new DataGridView();
             panel4 = new Panel();
             statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             button5 = new Button();
             button6 = new Button();
             button4 = new Button();
@@ -66,7 +68,7 @@
             cmbProduct = new ComboBox();
             label1 = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
@@ -91,9 +93,9 @@
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel4);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 354);
+            panel3.Location = new Point(0, 392);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1015, 345);
+            panel3.Size = new Size(1015, 307);
             panel3.TabIndex = 1;
             // 
             // panel5
@@ -102,7 +104,7 @@
             panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(0, 100);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1015, 245);
+            panel5.Size = new Size(1015, 207);
             panel5.TabIndex = 1;
             // 
             // dataGridView1
@@ -112,8 +114,9 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1015, 245);
+            dataGridView1.Size = new Size(1015, 207);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // panel4
             // 
@@ -144,6 +147,11 @@
             statusStrip1.TabIndex = 22;
             statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(0, 17);
+            // 
             // button5
             // 
             button5.Location = new Point(151, 50);
@@ -161,6 +169,7 @@
             button6.TabIndex = 21;
             button6.Text = "Search";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button4
             // 
@@ -188,7 +197,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(743, 50);
+            button3.Location = new Point(752, 50);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 12;
@@ -267,7 +276,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1015, 354);
+            panel2.Size = new Size(1015, 392);
             panel2.TabIndex = 0;
             // 
             // label9
@@ -322,9 +331,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(368, 325);
+            button1.Location = new Point(284, 323);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(106, 41);
             button1.TabIndex = 24;
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = true;
@@ -440,10 +449,10 @@
             label1.TabIndex = 12;
             label1.Text = "Product";
             // 
-            // toolStripStatusLabel1
+            // contextMenuStrip1
             // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(0, 17);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // frmProductPrice
             // 
@@ -508,5 +517,6 @@
         private Button button6;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

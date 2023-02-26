@@ -27,7 +27,7 @@ namespace Retail.Stock.UI
         private int _totalRecords = 0;
         private BindingSource _bindingSource = new BindingSource();
         private DateTime _startDate = DateTime.Today.AddDays(-15);
-        private DateTime _endDate = DateTime.Today.AddDays(1);
+        private DateTime _endDate = DateTime.Today;
         private int? _productId = null;
         public frmProductPrice(IProductPriceRepository productPriceRepository, IProductRepository productRepository)
         {
@@ -77,16 +77,18 @@ namespace Retail.Stock.UI
             _LoadProductForSearch();
 
             comboBox1.SelectedIndex = -1;
-
+            cmbProduct.SelectedIndex = -1;
             LoadData();
         }
 
-        private void _LoadProduct()
+        private void _LoadProduct(int? priductId = null)
         {
-
+            IEnumerable<Product> products = Enumerable.Empty<Product>();
             // Get the list of categories from the repository
-            IEnumerable<Product> products = _productRepository.GetAll();
-
+            if (priductId is null)
+                products = _productRepository.GetAll();
+            else
+                products = _productRepository.GetAllById((int)priductId);
             // Insert the "Please select" item at the beginning of the list
 
             // Bind the list of categories to the ComboBox control
@@ -176,7 +178,7 @@ namespace Retail.Stock.UI
 
             // Set the data source of the binding source
             _bindingSource.DataSource = data;
-
+            dataGridView1.ReadOnly = true;
             // Bind the binding source to the data grid view
             dataGridView1.DataSource = _bindingSource;
             // dataGridView1.AutoGenerateColumns = false;
@@ -228,37 +230,42 @@ namespace Retail.Stock.UI
                     throw new Exception("Please enter a  price.");
 
                 }
-                var product = _productRepository.GetById(selected.Id);
+                var productsingle = _productRepository.GetById(selected.Id);
                 if (string.IsNullOrEmpty(txId.Text))
                 {
                     ProductPrice _productPrice = new(selected.Id, Convert.ToInt32(txtQuantity.Text),
                         Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSellingPrice.Text));
-                    product.SetPurchasedPrice(Convert.ToDecimal(txtPrice.Text));
-                    product.SetRetailPrice(Convert.ToDecimal(txtSellingPrice.Text));
-                    product.SetStockIn(Convert.ToInt32(txtQuantity.Text));
 
-                    _productPrice.AddProduct(product);
+                    productsingle.SetPurchasedPrice(Convert.ToDecimal(txtPrice.Text));
+                    productsingle.SetRetailPrice(Convert.ToDecimal(txtSellingPrice.Text));
+                    productsingle.SetStockIn(Convert.ToInt32(txtQuantity.Text));
+
+                    _productPrice.AddProduct(productsingle);
 
                     _productPriceRepository.Add(_productPrice);
-                    _productRepository.Update(product);
+                    _productRepository.Update(productsingle);
                 }
                 else
                 {
                     ProductPrice productPrice = _productPriceRepository.GetById(int.Parse(txId.Text));
+                    int remainingQuentity = (productsingle.StockIn + int.Parse(txtQuantity.Text)) - productPrice.Quantity;
+
 
                     productPrice.SetDetail(
-                   int.Parse(txId.Text),
+                   productsingle.Id,
                    int.Parse(txtQuantity.Text),
                    decimal.Parse(txtPrice.Text),
                    decimal.Parse(txtSellingPrice.Text));
 
-                    product.SetPurchasedPrice(Convert.ToDecimal(txtPrice.Text));
-                    product.SetRetailPrice(Convert.ToDecimal(txtSellingPrice.Text));
-                    int remainingQuentity = (product.StockIn - productPrice.Quantity) + int.Parse(txtQuantity.Text);
 
 
+                    productsingle.SetPurchasedPrice(Convert.ToDecimal(txtPrice.Text));
+                    productsingle.SetRetailPrice(Convert.ToDecimal(txtSellingPrice.Text));
+
+                    productsingle.SetRemainingQuantity(remainingQuentity);
+                    _productRepository.Update(productsingle);
                     _productPriceRepository.Update(productPrice);
-                    _productRepository.Update(product);
+
                 }
 
 
@@ -270,7 +277,9 @@ namespace Retail.Stock.UI
                 txtCartonPrice.Clear();
                 txtCartonQuantity.Clear();
                 txtPerQuantity.Clear();
-
+                cmbProduct.Enabled = true;
+                cmbProduct.SelectedIndex = -1;
+                LoadData();
             }
             catch (Exception ex)
             {
@@ -317,6 +326,31 @@ namespace Retail.Stock.UI
         }
 
         private void button4_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = _startDate; dateTimePicker2.Value = _endDate;
+            comboBox1.SelectedIndex = -1;
+            LoadData();
+        }
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Get the selected row's data
+                var product = (ProductPriceModel)_bindingSource[e.RowIndex];
+                var productPrice = _productPriceRepository.GetById(product.ProductPriceId);
+                _LoadProduct(productPrice.ProductId);
+                // Fill the win form with the selected row's data
+                txtQuantity.Text = product.Quantity.ToString();
+                txId.Text = product.ProductPriceId.ToString();
+                cmbProduct.SelectedValue = productPrice.ProductId;
+                cmbProduct.SelectedItem = product.ProductName;
+                txtPrice.Text = product.PurchasedPrice.ToString();
+                txtSellingPrice.Text = product.SellingPrice.ToString();
+                cmbProduct.SelectedItem = "Non-Carton";
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
         {
             LoadData();
         }

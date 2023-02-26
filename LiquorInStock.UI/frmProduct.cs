@@ -1,6 +1,7 @@
 ﻿using Retail.Stock.Application.Common;
 using Retail.Stock.Domain.Aggregates.Category;
 using Retail.Stock.Domain.Aggregates.Product;
+using Retail.Stock.Infrastructure.Repositories;
 using Retail.Stock.UI.Model;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace Retail.Stock.UI
         private void frmProduct_Load(object sender, EventArgs e)
         {
             _LoadCategory();
-
+            cmbCategory.SelectedIndex = -1;
             LoadData();
         }
 
@@ -89,7 +90,7 @@ namespace Retail.Stock.UI
 
             // Calculate the total number of pages
             _totalPages = (int)Math.Ceiling((double)_totalRecords / _pageSize);
-
+            dataGridView1.ReadOnly = true;
             // Set the data source of the binding source
             _bindingSource.DataSource = data;
 
@@ -234,6 +235,7 @@ namespace Retail.Stock.UI
                 // clear the form inputs
                 txtName.Clear();
                 TxtId.Clear();
+                cmbCategory.SelectedIndex = -1;
                 LoadData();
             }
             catch (Exception ex)
@@ -248,7 +250,7 @@ namespace Retail.Stock.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Category selectedCategory = (Category)cmbCategory.SelectedItem;            
+            Category selectedCategory = (Category)cmbCategory.SelectedItem;
             _CategoryId = null;
             _productName = "";
             LoadData();
@@ -260,14 +262,15 @@ namespace Retail.Stock.UI
             {
                 // Get the selected row's data
                 var product = (ProductModel)_bindingSource[e.RowIndex];
-
+                var productOne = _productRepository.GetById(product.ProductId);
                 // Fill the win form with the selected row's data
                 txtName.Text = product.ProductName;
                 TxtId.Text = product.ProductId.ToString();
                 cmbCategory.SelectedItem = product.CategoryName;
+                cmbCategory.SelectedValue = productOne.CategoryId;
             }
         }
-        
+
         private void button6_Click(object sender, EventArgs e)
         {
             Category selectedCategory = (Category)cmbCategory.SelectedItem;
