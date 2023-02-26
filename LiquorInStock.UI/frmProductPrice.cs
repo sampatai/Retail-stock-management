@@ -125,6 +125,7 @@ namespace Retail.Stock.UI
                 int totalQuantity = (Convert.ToInt32(txtPerQuantity.Text) * Convert.ToInt32(txtCartonQuantity.Text));
                 txtQuantity.Text = totalQuantity.ToString();
                 txtPrice.Text = (Convert.ToDecimal(txtCartonPrice.Text) / Convert.ToDecimal(totalQuantity)).ToString("F2");
+                txtTotalPrice.Text = txtCartonPrice.Text;
             }
 
         }
@@ -138,6 +139,7 @@ namespace Retail.Stock.UI
                 int totalQuantity = (Convert.ToInt32(txtCartonQuantity.Text) * Convert.ToInt32(txtPerQuantity.Text));
                 txtQuantity.Text = totalQuantity.ToString();
                 txtPrice.Text = (Convert.ToDecimal(txtCartonPrice.Text) / Convert.ToDecimal(totalQuantity)).ToString("F2");
+                txtTotalPrice.Text = txtCartonPrice.Text;
             }
         }
 
@@ -150,6 +152,7 @@ namespace Retail.Stock.UI
                 int totalQuantity = (Convert.ToInt32(txtCartonQuantity.Text) * Convert.ToInt32(txtPerQuantity.Text));
                 txtQuantity.Text = totalQuantity.ToString();
                 txtPrice.Text = (Convert.ToDecimal(txtCartonPrice.Text) / Convert.ToDecimal(totalQuantity)).ToString("F2");
+                txtTotalPrice.Text = txtCartonPrice.Text;
             }
         }
         private void LoadData()
@@ -319,7 +322,7 @@ namespace Retail.Stock.UI
                 txtPrice.Text = product.PurchasedPrice.ToString();
                 txtSellingPrice.Text = product.SellingPrice.ToString();
                 cmbProduct.SelectedItem = "Non-Carton";
-                txtTotalPrice.Text = productPrice.TotalPrice.ToString();
+                txtTotalPrice.Text = productPrice.TotalPrice.ToString("F");
             }
         }
 
@@ -378,7 +381,7 @@ namespace Retail.Stock.UI
         {
             if (!string.IsNullOrEmpty(txtTotalPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
             {
-                txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+                txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString("F");
             }
         }
 
@@ -388,7 +391,7 @@ namespace Retail.Stock.UI
             {
                 if (!string.IsNullOrEmpty(txtPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
                 {
-                    txtTotalPrice.Text = (Convert.ToDecimal(txtPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+                    txtTotalPrice.Text = (Convert.ToDecimal(txtPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString("F");
                 }
             }
 
@@ -399,7 +402,7 @@ namespace Retail.Stock.UI
             if (string.IsNullOrEmpty(txtPrice.Text)){
                 if (!string.IsNullOrEmpty(txtTotalPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
                 {
-                    txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+                    txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString("F");
                 }
             }
 
