@@ -23,7 +23,7 @@ namespace Retail.Stock.UI
     {
         private readonly IProductPriceRepository _productPriceRepository;
         private readonly IProductRepository _productRepository;
-   
+
         private BindingSource _bindingSource = new BindingSource();
         private DateTime _startDate = DateTime.Today.AddDays(-15);
         private DateTime _endDate = DateTime.Today;
@@ -157,7 +157,7 @@ namespace Retail.Stock.UI
             _endDate = dateTimePicker2.Value;
             _productId = string.IsNullOrEmpty(comboBox1.SelectedValue?.ToString()) ? null : Convert.ToInt32(comboBox1.SelectedValue);
             var products = _productPriceRepository
-                .GetPage( _productId, _startDate, _endDate);
+                .GetPage(_productId, _startDate, _endDate);
             List<Product> productsList = _productRepository.GetAll().ToList();
             var data = products.Select(x => new ProductPriceModel()
             {
@@ -170,7 +170,7 @@ namespace Retail.Stock.UI
                 SellingPrice = x.SellingPrice,
                 TotalSellingPrice = x.SellingPrice * x.Quantity,
             }).ToList();
-          
+
             // Set the data source of the binding source
             _bindingSource.DataSource = data;
             dataGridView1.ReadOnly = true;
@@ -180,9 +180,9 @@ namespace Retail.Stock.UI
             // Show the row numbers
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-          
 
-           
+
+
             int totalQuantity = 0;
             decimal totalAmount = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -259,7 +259,7 @@ namespace Retail.Stock.UI
 
 
                 MessageBox.Show("Product price saved successfully.");
-               
+
                 _Refresh();
             }
             catch (Exception ex)
@@ -269,9 +269,9 @@ namespace Retail.Stock.UI
             }
         }
 
-      
 
-       
+
+
         private void button4_Click(object sender, EventArgs e)
         {
             Refresh();
@@ -288,7 +288,7 @@ namespace Retail.Stock.UI
             txtSellingPrice.Clear();
             txtCartonPrice.Clear();
             txtCartonQuantity.Clear();
-            txtPerQuantity.Clear();          
+            txtPerQuantity.Clear();
             cmbProduct.SelectedIndex = -1;
             LoadData();
         }
@@ -340,7 +340,7 @@ namespace Retail.Stock.UI
                         _productRepository.Update(productsingle);
                         _productPriceRepository.Remove(selectedProduct.ProductPriceId);
                         // Refresh the data
-                        
+
                         LoadData();
                     }
                     catch (Exception ex)

@@ -8,14 +8,15 @@ namespace Retail.Stock.Domain.Aggregates.Product
 
         public ProductSales(int productId,
             int quantity,
-            decimal price        
+            decimal price,
+            DateTime addOn
             )
         {
             Id = ObjectId.NewObjectId().Increment;
             ProductId = Guard.Against.NegativeOrZero(productId);
             Price = Guard.Against.NegativeOrZero(price);
             Quantity = Guard.Against.NegativeOrZero(quantity);
-            AddedOn = DateTime.Today;
+            AddedOn = addOn;
         }
 
         public int ProductId { get; private set; }
@@ -27,12 +28,13 @@ namespace Retail.Stock.Domain.Aggregates.Product
 
         public void SetDetail(int productId,
             int quantity,
-            decimal price)
+            decimal price, DateTime addOn)
         {
             ProductId = Guard.Against.NegativeOrZero(productId);
             Price = Guard.Against.NegativeOrZero(price);
             Quantity = Guard.Against.NegativeOrZero(quantity);
             UpdatedOn = DateTime.Today;
+            AddedOn = addOn;
         }
         public void AddProduct(Product product)
         {

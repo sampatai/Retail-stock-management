@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Logging;
 using Retail.Stock.Application.Common;
+using Retail.Stock.Infrastructure.Repositories;
 using Retail.Stock.UI;
 
 namespace LiquorInStock.UI
@@ -12,13 +13,14 @@ namespace LiquorInStock.UI
 
         //}
         private readonly ICategoryRepository _categoryRepository;
-
+        private readonly IProductSalesRepository _productSalesRepository;
         private readonly IProductRepository _productRepository;
         private readonly IProductPriceRepository _productPriceRepository;
         public Main(
             ICategoryRepository categoryRepository,
             IProductRepository productRepository,
-            IProductPriceRepository productPriceRepository)
+            IProductPriceRepository productPriceRepository,
+            IProductSalesRepository productSalesRepository)
         {
             InitializeComponent();
             Size = new Size(1200, 800);
@@ -26,6 +28,7 @@ namespace LiquorInStock.UI
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
             _productPriceRepository = productPriceRepository;
+            _productSalesRepository = productSalesRepository;
         }
 
 
@@ -67,7 +70,23 @@ namespace LiquorInStock.UI
             childForm3.Dock = DockStyle.Fill;
 
             // Create a new tab page and add the first child form to it
-            TabPage tabPage3 = new TabPage("Product Purchase");
+            TabPage tabPage3 = new TabPage("Product Purchased");
+            tabPage3.Controls.Add(childForm3);
+            tabControl1.TabPages.Add(tabPage3);
+
+            // Show the first child form
+            childForm3.Show();
+            _ProductSales();
+        }
+        private void _ProductSales()
+        {
+            frmProductSales childForm3 = new frmProductSales(_productRepository, _productSalesRepository);
+            childForm3.TopLevel = false;
+            childForm3.FormBorderStyle = FormBorderStyle.None;
+            childForm3.Dock = DockStyle.Fill;
+
+            // Create a new tab page and add the first child form to it
+            TabPage tabPage3 = new TabPage("Product Sales");
             tabPage3.Controls.Add(childForm3);
             tabControl1.TabPages.Add(tabPage3);
 

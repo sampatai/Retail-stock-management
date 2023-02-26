@@ -1,6 +1,7 @@
 ﻿using LiquorInStock.UI;
 using Microsoft.Extensions.Logging;
 using Retail.Stock.Application.Common;
+using Retail.Stock.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,19 +18,23 @@ namespace Retail.Stock.UI
     public partial class LoginForm : Form
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IProductSalesRepository _productSalesRepository;
 
         private readonly IProductRepository _productRepository;
         private readonly IProductPriceRepository _productPriceRepository;
-        public LoginForm(ILogger<Main> logger,
+        public LoginForm(
             ICategoryRepository categoryRepository,
             IProductRepository productRepository,
-            IProductPriceRepository productPriceRepository)
+            IProductPriceRepository productPriceRepository,
+            IProductSalesRepository productSalesRepository
+            )
         {
             InitializeComponent();
 
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
             _productPriceRepository = productPriceRepository;
+            _productSalesRepository = productSalesRepository;
         }
         public LoginForm()
         {
@@ -45,7 +50,7 @@ namespace Retail.Stock.UI
             {
                 // Show the main form
                 this.Hide();
-                Main mainForm = new Main(_categoryRepository, _productRepository, _productPriceRepository);
+                Main mainForm = new Main(_categoryRepository, _productRepository, _productPriceRepository, _productSalesRepository);
                 mainForm.Closed += (s, args) => this.Close();
                 mainForm.Show();
             }
@@ -54,6 +59,11 @@ namespace Retail.Stock.UI
                 // Show an error message
                 MessageBox.Show("Authentication failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

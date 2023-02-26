@@ -90,3 +90,4 @@ C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net
 C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.frmProduct.resources
 C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.frmProductPrice.resources
 C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.LoginForm.resources
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.UI\obj\Debug\net7.0-windows\Retail.Stock.UI.frmProductSales.resources
