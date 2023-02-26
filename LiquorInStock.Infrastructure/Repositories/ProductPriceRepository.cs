@@ -44,10 +44,10 @@ namespace Retail.Stock.Infrastructure.Repositories
                 var products = db.GetCollection<ProductPrice>();
                 if (ProductId is not null)
                 {
-                    var result = products
+                    var result = products                   
+                          //.Include(x => x.Products)
                           .Query()
-                          .Include(x => x.Products.Where(t => t.Id == ProductId))
-                          .Where(s => s.AddedOn >= start && s.AddedOn <= end)
+                          .Where(s => s.AddedOn >= start && s.AddedOn <= end && s.ProductId.Equals(ProductId))
                           .OrderByDescending(x => x.Id)
                           .Skip((pageIndex - 1) * pageSize)
                           .Limit(pageSize)
@@ -58,9 +58,9 @@ namespace Retail.Stock.Infrastructure.Repositories
                 else
                 {
 
-                    var result = products
+                    var result = products                       
+                       .Include(x => x.Products)
                         .Query()
-                        .Include(x => x.Products)
                         .Where(s => s.AddedOn >= start && s.AddedOn <= end)
                         .OrderByDescending(x => x.Id)
                         .Skip((pageIndex - 1) * pageSize)

@@ -69,8 +69,8 @@ namespace Retail.Stock.Shared.SeedWork
     }
     public abstract class AuditableEntity : Entity
     {
-        public DateTime AddedOn { get; set; }        
-        public DateTime? UpdatedOn { get; set; }
-       
+        public DateTime AddedOn { get; set; } = DateTime.Today;
+        public DateTime? UpdatedOn { get; set; } 
+
     }
 }

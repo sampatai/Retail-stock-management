@@ -33,7 +33,14 @@ namespace Retail.Stock.Infrastructure.Repositories
         {
             using (var db = _databaseProvider.GetDatabase())
             {
-                return db.GetCollection<Product>().FindAll();
+                return db.GetCollection<Product>().FindAll().ToList();
+            }
+        }
+        public IEnumerable<Product> GetAllById(int id)
+        {
+            using (var db = _databaseProvider.GetDatabase())
+            {
+                return db.GetCollection<Product>().Query().Where(x => x.Id == id).ToList();
             }
         }
 
@@ -49,7 +56,7 @@ namespace Retail.Stock.Infrastructure.Repositories
                 {
                     var result = products
                           .Query()
-                          .Where(s => s.ProductName.Equals(product)
+                          .Where(s => s.ProductName.Contains(product)
                                      && s.CategoryId.Equals(category))
                           .OrderByDescending(x => x.Id)
                           .Skip((pageIndex - 1) * pageSize)
@@ -73,7 +80,7 @@ namespace Retail.Stock.Infrastructure.Repositories
                 {
                     var result = products
                         .Query()
-                        .Where(s => s.ProductName.Equals(product))
+                        .Where(s => s.ProductName.Contains(product))
                         .OrderByDescending(x => x.Id)
                         .Skip((pageIndex - 1) * pageSize)
                         .Limit(pageSize)

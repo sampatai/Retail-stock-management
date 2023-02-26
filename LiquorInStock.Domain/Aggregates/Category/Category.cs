@@ -12,7 +12,7 @@ namespace Retail.Stock.Domain.Aggregates.Category
         {
             Id = ObjectId.NewObjectId().Increment;
             CategoryName = Guard.Against.NullOrEmpty(categoryName);
-            AddedOn = DateTime.UtcNow;
+            AddedOn = DateTime.Today;
         }
         
         public string CategoryName { get; set; }
@@ -20,7 +20,7 @@ namespace Retail.Stock.Domain.Aggregates.Category
         public void SetDetails(string name)
         {
             CategoryName = Guard.Against.NullOrEmpty(name);
-            UpdatedOn = DateTime.UtcNow;
+            UpdatedOn = DateTime.Today;
         }
     }
 }

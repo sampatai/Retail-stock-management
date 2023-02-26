@@ -24,6 +24,8 @@ namespace Retail.Stock.UI
         private int _pageIndex = 1;
         private int _totalPages = 1;
         private int _totalRecords = 0;
+        private int? _CategoryId = null;
+        public string _productName = "";
 
         private BindingSource _bindingSource = new BindingSource();
         public frmProduct(ICategoryRepository categoryRepository,
@@ -38,6 +40,7 @@ namespace Retail.Stock.UI
         private void frmProduct_Load(object sender, EventArgs e)
         {
             _LoadCategory();
+
             LoadData();
         }
 
@@ -65,19 +68,20 @@ namespace Retail.Stock.UI
         }
 
 
-        private void LoadData(int? categoryId = null, string product = "")
+        private void LoadData()
         {
             var category = _Category();
             // Get the data from your repository, filtered and sorted as needed
-            var products = _productRepository.GetPage(_pageIndex, _pageSize, product, categoryId);
+            var products = _productRepository.GetPage(_pageIndex, _pageSize, _productName, _CategoryId);
             var data = products.Result.Select(x => new ProductModel()
             {
 
                 ProductId = x.Id,
+                CategoryName = category.Where(s => s.Id.Equals(x.CategoryId)).FirstOrDefault()?.CategoryName,
                 ProductName = x.ProductName,
+                PurchasedPrice = x.PurchasedPrice,
                 RetailPrice = x.RetailPrice,
                 StockIn = x.StockIn,
-                CategoryName = category.Where(s => s.Id.Equals(x.CategoryId)).FirstOrDefault()?.CategoryName,
             }).ToList();
 
             // Get the total number of records
@@ -122,6 +126,16 @@ namespace Retail.Stock.UI
             if (_pageIndex != 1)
             {
                 _pageIndex = 1;
+                Category selectedCategory = (Category)cmbCategory.SelectedItem;
+                if (selectedCategory is not null)
+                {
+                    _CategoryId = selectedCategory.Id;
+
+                }
+                if (!string.IsNullOrEmpty(txtName.Text))
+                {
+                    _productName = txtName.Text;
+                }
                 LoadData();
             }
         }
@@ -131,6 +145,16 @@ namespace Retail.Stock.UI
             if (_pageIndex > 1)
             {
                 _pageIndex--;
+                Category selectedCategory = (Category)cmbCategory.SelectedItem;
+                if (selectedCategory is not null)
+                {
+                    _CategoryId = selectedCategory.Id;
+
+                }
+                if (!string.IsNullOrEmpty(txtName.Text))
+                {
+                    _productName = txtName.Text;
+                }
                 LoadData();
             }
         }
@@ -140,6 +164,16 @@ namespace Retail.Stock.UI
             if (_pageIndex < _totalPages)
             {
                 _pageIndex++;
+                Category selectedCategory = (Category)cmbCategory.SelectedItem;
+                if (selectedCategory is not null)
+                {
+                    _CategoryId = selectedCategory.Id;
+
+                }
+                if (!string.IsNullOrEmpty(txtName.Text))
+                {
+                    _productName = txtName.Text;
+                }
                 LoadData();
             }
         }
@@ -149,6 +183,16 @@ namespace Retail.Stock.UI
             if (_pageIndex != _totalPages)
             {
                 _pageIndex = _totalPages;
+                Category selectedCategory = (Category)cmbCategory.SelectedItem;
+                if (selectedCategory is not null)
+                {
+                    _CategoryId = selectedCategory.Id;
+
+                }
+                if (!string.IsNullOrEmpty(txtName.Text))
+                {
+                    _productName = txtName.Text;
+                }
                 LoadData();
             }
         }
@@ -204,6 +248,9 @@ namespace Retail.Stock.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Category selectedCategory = (Category)cmbCategory.SelectedItem;            
+            _CategoryId = null;
+            _productName = "";
             LoadData();
         }
 
@@ -220,22 +267,21 @@ namespace Retail.Stock.UI
                 cmbCategory.SelectedItem = product.CategoryName;
             }
         }
-        private void AdjustDataGridViewHeight()
-        {
-            const int rowHeight = 22; // Height of a single row
-            const int headerHeight = 24; // Height of the column headers
-            const int rowCount = 10; // Maximum number of rows to display
-
-            int totalRowHeight = (rowCount * rowHeight) + headerHeight;
-            dataGridView1.Height = totalRowHeight;
-        }
+        
         private void button6_Click(object sender, EventArgs e)
         {
             Category selectedCategory = (Category)cmbCategory.SelectedItem;
             if (selectedCategory is not null)
-                LoadData(selectedCategory.Id, txtName.Text);
-            else
-                LoadData(null, txtName.Text);
+            {
+                _CategoryId = selectedCategory.Id;
+
+            }
+            if (!string.IsNullOrEmpty(txtName.Text))
+            {
+                _productName = txtName.Text;
+            }
+            LoadData();
+
         }
 
         private void button5_Click(object sender, EventArgs e)

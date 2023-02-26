@@ -12,17 +12,17 @@ namespace LiquorInStock.UI
 
         //}
         private readonly ICategoryRepository _categoryRepository;
-        private readonly ILogger _logger;
+
         private readonly IProductRepository _productRepository;
         private readonly IProductPriceRepository _productPriceRepository;
-        public Main(ILogger<Main> logger,
+        public Main(
             ICategoryRepository categoryRepository,
             IProductRepository productRepository,
             IProductPriceRepository productPriceRepository)
         {
             InitializeComponent();
             Size = new Size(1200, 800);
-            _logger = logger;
+
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
             _productPriceRepository = productPriceRepository;

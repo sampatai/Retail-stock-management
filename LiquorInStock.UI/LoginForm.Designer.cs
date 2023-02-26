@@ -1,14 +1,14 @@
-﻿namespace LiquorInStock.UI
+﻿namespace Retail.Stock.UI
 {
-    partial class Main
+    partial class LoginForm
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,38 +23,38 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
+            button1 = new Button();
             SuspendLayout();
             // 
-            // tabControl1
+            // button1
             // 
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(800, 450);
-            tabControl1.TabIndex = 2;
+            button1.Location = new Point(84, 68);
+            button1.Name = "button1";
+            button1.Size = new Size(203, 57);
+            button1.TabIndex = 0;
+            button1.Text = "Login";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // Main
+            // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(tabControl1);
-            Name = "Main";
+            ClientSize = new Size(382, 184);
+            Controls.Add(button1);
+            Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Main_Load;
+            Text = "LoginForm";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TabControl tabControl1;
+        private Button button1;
     }
 }

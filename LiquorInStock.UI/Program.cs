@@ -4,6 +4,7 @@ using Retail.Stock.Application.Common;
 using Retail.Stock.Infrastructure.Repositories;
 using Retail.Stock.Shared.SeedWork;
 using Retail.Stock.UI;
+using System.Security.Principal;
 
 namespace LiquorInStock.UI
 {
@@ -21,12 +22,20 @@ namespace LiquorInStock.UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             var services = new ServiceCollection();
             ConfigureServices(services);
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                var form1 = serviceProvider.GetRequiredService<Main>();
+                var form1 = serviceProvider.GetRequiredService<LoginForm>();
+             
+                // Authenticate the user
+
+                // Show the login form
                 Application.Run(form1);
+
+
             }
             //Application.Run(new Form1());
         }
@@ -36,13 +45,13 @@ namespace LiquorInStock.UI
 
 
             services.AddLogging(configure => configure.AddConsole())
-                .AddScoped<Main>()
-                .AddScoped<ICategoryRepository, CategoryRepository>()
-                .AddScoped<frmCategory>();
+                .AddScoped<LoginForm>()
+                .AddScoped<ICategoryRepository, CategoryRepository>();
 
-            services.AddScoped<IProductRepository, ProductRepository>().AddScoped<frmProduct>();
 
-            services.AddScoped<IProductPriceRepository, ProductPriceRepository>().AddScoped<frmProductPrice>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddScoped<IProductPriceRepository, ProductPriceRepository>();
 
         }
     }
