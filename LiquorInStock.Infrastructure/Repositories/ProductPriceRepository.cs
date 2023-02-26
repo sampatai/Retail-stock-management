@@ -56,8 +56,7 @@ namespace Retail.Stock.Infrastructure.Repositories
                 else
                 {
 
-                    var result = products                       
-                       .Include(x => x.Products)
+                    var result = products                                              
                         .Query()
                         .Where(s => s.AddedOn >= start && s.AddedOn <= end)
                         .OrderByDescending(x => x.Id)

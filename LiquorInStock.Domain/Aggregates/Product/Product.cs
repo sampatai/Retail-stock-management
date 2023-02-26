@@ -50,5 +50,9 @@ namespace Retail.Stock.Domain.Aggregates.Product
         {
             StockIn = quantity;
         }
+        public void SetStockOut(int quantity)
+        {
+            StockIn -= quantity;
+        }
     }
 }

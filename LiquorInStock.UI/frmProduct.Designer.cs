@@ -107,7 +107,7 @@
             button5.Location = new Point(104, 6);
             button5.Name = "button5";
             button5.Size = new Size(75, 23);
-            button5.TabIndex = 16;
+            button5.TabIndex = 7;
             button5.Text = "Delete";
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
@@ -117,7 +117,7 @@
             button4.Location = new Point(23, 6);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
-            button4.TabIndex = 15;
+            button4.TabIndex = 6;
             button4.Text = "Refresh";
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
@@ -143,7 +143,7 @@
             button6.Location = new Point(345, 137);
             button6.Name = "button6";
             button6.Size = new Size(75, 23);
-            button6.TabIndex = 24;
+            button6.TabIndex = 4;
             button6.Text = "Search";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
@@ -163,14 +163,14 @@
             TxtId.Name = "TxtId";
             TxtId.ReadOnly = true;
             TxtId.Size = new Size(100, 23);
-            TxtId.TabIndex = 22;
+            TxtId.TabIndex = 1;
             // 
             // button1
             // 
             button1.Location = new Point(435, 137);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
-            button1.TabIndex = 21;
+            button1.TabIndex = 5;
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
@@ -179,8 +179,8 @@
             // 
             txtName.Location = new Point(301, 98);
             txtName.Name = "txtName";
-            txtName.Size = new Size(229, 23);
-            txtName.TabIndex = 20;
+            txtName.Size = new Size(322, 23);
+            txtName.TabIndex = 3;
             // 
             // label2
             // 
@@ -206,7 +206,7 @@
             cmbCategory.Location = new Point(301, 63);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(229, 23);
-            cmbCategory.TabIndex = 17;
+            cmbCategory.TabIndex = 2;
             // 
             // panel3
             // 
@@ -228,6 +228,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(800, 203);
             dataGridView1.TabIndex = 6;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // panel4
             // 

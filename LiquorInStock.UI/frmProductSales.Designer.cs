@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            txtTotalPrice = new TextBox();
+            label11 = new Label();
             label6 = new Label();
             todayDate = new DateTimePicker();
             label9 = new Label();
@@ -62,8 +64,6 @@
             label10 = new Label();
             miniToolStrip = new StatusStrip();
             panel1 = new Panel();
-            txtTotalPrice = new TextBox();
-            label11 = new Label();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
@@ -101,6 +101,23 @@
             panel2.Size = new Size(1211, 392);
             panel2.TabIndex = 0;
             // 
+            // txtTotalPrice
+            // 
+            txtTotalPrice.Location = new Point(292, 237);
+            txtTotalPrice.Name = "txtTotalPrice";
+            txtTotalPrice.Size = new Size(100, 23);
+            txtTotalPrice.TabIndex = 8;
+            txtTotalPrice.TextChanged += txtTotalPrice_TextChanged;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(211, 241);
+            label11.Name = "label11";
+            label11.Size = new Size(61, 15);
+            label11.TabIndex = 33;
+            label11.Text = "Price Total";
+            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -115,7 +132,7 @@
             todayDate.Location = new Point(290, 278);
             todayDate.Name = "todayDate";
             todayDate.Size = new Size(200, 23);
-            todayDate.TabIndex = 24;
+            todayDate.TabIndex = 10;
             // 
             // label9
             // 
@@ -132,14 +149,15 @@
             txId.Name = "txId";
             txId.ReadOnly = true;
             txId.Size = new Size(100, 23);
-            txId.TabIndex = 29;
+            txId.TabIndex = 1;
             // 
             // txtPrice
             // 
             txtPrice.Location = new Point(519, 237);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(100, 23);
-            txtPrice.TabIndex = 28;
+            txtPrice.TabIndex = 9;
+            txtPrice.TextChanged += txtPrice_TextChanged;
             // 
             // label8
             // 
@@ -155,7 +173,8 @@
             txtQuantity.Location = new Point(290, 193);
             txtQuantity.Name = "txtQuantity";
             txtQuantity.Size = new Size(100, 23);
-            txtQuantity.TabIndex = 26;
+            txtQuantity.TabIndex = 7;
+            txtQuantity.TextChanged += txtQuantity_TextChanged;
             // 
             // label7
             // 
@@ -171,16 +190,17 @@
             button1.Location = new Point(284, 320);
             button1.Name = "button1";
             button1.Size = new Size(106, 41);
-            button1.TabIndex = 24;
+            button1.TabIndex = 11;
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // txtCartonPrice
             // 
             txtCartonPrice.Location = new Point(519, 114);
             txtCartonPrice.Name = "txtCartonPrice";
             txtCartonPrice.Size = new Size(100, 23);
-            txtCartonPrice.TabIndex = 22;
+            txtCartonPrice.TabIndex = 5;
             txtCartonPrice.Visible = false;
             txtCartonPrice.TextChanged += txtCartonPrice_TextChanged;
             // 
@@ -189,7 +209,7 @@
             txtPerQuantity.Location = new Point(290, 153);
             txtPerQuantity.Name = "txtPerQuantity";
             txtPerQuantity.Size = new Size(100, 23);
-            txtPerQuantity.TabIndex = 20;
+            txtPerQuantity.TabIndex = 6;
             txtPerQuantity.Visible = false;
             txtPerQuantity.TextChanged += txtPerQuantity_TextChanged;
             // 
@@ -198,7 +218,7 @@
             txtCartonQuantity.Location = new Point(290, 114);
             txtCartonQuantity.Name = "txtCartonQuantity";
             txtCartonQuantity.Size = new Size(100, 23);
-            txtCartonQuantity.TabIndex = 19;
+            txtCartonQuantity.TabIndex = 4;
             txtCartonQuantity.Visible = false;
             txtCartonQuantity.TextChanged += txtCartonQuantity_TextChanged;
             // 
@@ -209,7 +229,7 @@
             cmbType.Location = new Point(290, 76);
             cmbType.Name = "cmbType";
             cmbType.Size = new Size(106, 23);
-            cmbType.TabIndex = 18;
+            cmbType.TabIndex = 3;
             cmbType.SelectedIndexChanged += cmbType_SelectedIndexChanged;
             // 
             // label5
@@ -257,7 +277,8 @@
             cmbProduct.Location = new Point(290, 33);
             cmbProduct.Name = "cmbProduct";
             cmbProduct.Size = new Size(300, 23);
-            cmbProduct.TabIndex = 13;
+            cmbProduct.TabIndex = 2;
+            cmbProduct.SelectedIndexChanged += cmbProduct_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -296,6 +317,7 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(1211, 199);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // panel4
             // 
@@ -327,41 +349,44 @@
             button5.Location = new Point(151, 50);
             button5.Name = "button5";
             button5.Size = new Size(75, 23);
-            button5.TabIndex = 16;
+            button5.TabIndex = 17;
             button5.Text = "Delete";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
             button6.Location = new Point(857, 15);
             button6.Name = "button6";
             button6.Size = new Size(75, 23);
-            button6.TabIndex = 21;
+            button6.TabIndex = 15;
             button6.Text = "Search";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button4
             // 
             button4.Location = new Point(70, 50);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
-            button4.TabIndex = 15;
+            button4.TabIndex = 16;
             button4.Text = "Refresh";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // dateTimePicker2
             // 
             dateTimePicker2.Location = new Point(625, 15);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 20;
+            dateTimePicker2.TabIndex = 14;
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Location = new Point(407, 15);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 19;
+            dateTimePicker1.TabIndex = 13;
             // 
             // comboBox1
             // 
@@ -369,7 +394,7 @@
             comboBox1.Location = new Point(96, 15);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(278, 23);
-            comboBox1.TabIndex = 18;
+            comboBox1.TabIndex = 12;
             // 
             // label10
             // 
@@ -400,23 +425,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1211, 699);
             panel1.TabIndex = 1;
-            // 
-            // txtTotalPrice
-            // 
-            txtTotalPrice.Location = new Point(292, 237);
-            txtTotalPrice.Name = "txtTotalPrice";
-            txtTotalPrice.Size = new Size(100, 23);
-            txtTotalPrice.TabIndex = 34;
-            txtTotalPrice.TextChanged += txtTotalPrice_TextChanged;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(211, 241);
-            label11.Name = "label11";
-            label11.Size = new Size(61, 15);
-            label11.TabIndex = 33;
-            label11.Text = "Price Total";
             // 
             // frmProductSales
             // 

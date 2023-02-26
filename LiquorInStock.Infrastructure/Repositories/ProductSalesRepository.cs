@@ -41,11 +41,10 @@ namespace Retail.Stock.Infrastructure.Repositories
         {
             using (var db = _databaseProvider.GetDatabase())
             {
-                var products = db.GetCollection<ProductSales>();
+                var productSales = db.GetCollection<ProductSales>();
                 if (ProductId is not null)
                 {
-                    var result = products
-                          //.Include(x => x.Products)
+                    var result = productSales
                           .Query()
                           .Where(s => s.AddedOn >= start && s.AddedOn <= end && s.ProductId.Equals(ProductId))
                           .OrderByDescending(x => x.Id)
@@ -56,12 +55,10 @@ namespace Retail.Stock.Infrastructure.Repositories
                 else
                 {
 
-                    var result = products
-                       .Include(x => x.Products)
+                    var result = productSales
                         .Query()
                         .Where(s => s.AddedOn >= start && s.AddedOn <= end)
                         .OrderByDescending(x => x.Id)
-
                         .ToList();
                     return result;
                 }

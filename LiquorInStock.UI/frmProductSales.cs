@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,9 +39,10 @@ namespace Retail.Stock.UI
             cmbType.SelectedIndex = 0;
             _LoadProduct();
             _LoadProductForSearch();
-
             comboBox1.SelectedIndex = -1;
             cmbProduct.SelectedIndex = -1;
+            LoadData();
+
         }
         private void _LoadProduct(int? priductId = null)
         {
@@ -72,6 +74,18 @@ namespace Retail.Stock.UI
             comboBox1.DisplayMember = "ProductName";
             comboBox1.ValueMember = "Id";
         }
+        private decimal _profitPer(List<Product> productsList, int ProductId, decimal price)
+        {
+            var productPurchasedPrice = productsList.Where(s => s.Id.Equals(ProductId)).FirstOrDefault();
+            return price - Convert.ToDecimal(productPurchasedPrice?.PurchasedPrice);
+
+        }
+        private decimal _profitTotal(List<Product> productsList, int ProductId, decimal price, int quantity)
+        {
+            var productPurchasedPrice = productsList.Where(s => s.Id.Equals(ProductId)).FirstOrDefault();
+            return price - (Convert.ToDecimal(productPurchasedPrice?.PurchasedPrice) * Convert.ToDecimal(quantity));
+
+        }
         private void LoadData()
         {
             _startDate = dateTimePicker1.Value;
@@ -84,12 +98,16 @@ namespace Retail.Stock.UI
             {
 
                 ProductSalesId = x.Id,
-                ProductName = productsList.Where(s => s.Id.Equals(x.ProductId)).FirstOrDefault()?.ProductName,
+                ProductName = productsList.Where(s => s.Id.Equals(x.ProductId))
+                .FirstOrDefault()?.ProductName,
                 Quantity = x.Quantity,
-                //PurchasedPrice = x.Price,
-                //TotaPurchasedPrice = x.Price * x.Quantity,
-                //SellingPrice = x.SellingPrice,
-                //TotalSellingPrice = x.SellingPrice * x.Quantity,
+                PricePer = x.Price,
+                PurchasedPrice = productsList.Where(s => s.Id.Equals(x.ProductId))
+                .FirstOrDefault()?.PurchasedPrice,
+                ProfitPer = _profitPer(productsList, x.ProductId, x.Price),
+                TotalPrice = x.TotalPrice,
+                TotalProfit = _profitTotal(productsList, x.ProductId, x.TotalPrice, x.Quantity)
+
             }).ToList();
 
             // Set the data source of the binding source
@@ -102,17 +120,15 @@ namespace Retail.Stock.UI
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-
-
-            int totalQuantity = 0;
-            decimal totalAmount = 0;
+            decimal totalProfit = 0;
+            decimal totalSalesAmount = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                totalQuantity += Convert.ToInt32(row.Cells["Quantity"].Value);
-                totalAmount += Convert.ToDecimal(row.Cells["TotaPurchasedPrice"].Value);
+                totalProfit += Convert.ToInt32(row.Cells["TotalProfit"].Value);
+                totalSalesAmount += Convert.ToDecimal(row.Cells["TotalPrice"].Value);
             }
-            var displayInfo = string.Format("Total Quantity: {0} || Total Amount: {1}",
-                   totalQuantity, totalAmount.ToString("F"));
+            var displayInfo = string.Format("Total Sales: {0} || Total Profit: {1}",
+                   totalSalesAmount.ToString("F"), totalProfit.ToString("F"));
             lblTotalDisplay.Text = displayInfo;
 
         }
@@ -190,6 +206,212 @@ namespace Retail.Stock.UI
             {
                 txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
             }
+        }
+
+        void _Refresh()
+        {
+            dateTimePicker1.Value = _startDate; dateTimePicker2.Value = _endDate;
+            comboBox1.SelectedIndex = -1;
+            comboBox1.Refresh();
+            cmbProduct.Refresh();
+            txId.Clear();
+            txtQuantity.Clear();
+            txtPrice.Clear();
+            todayDate.Value = DateTime.Today;
+            txtCartonPrice.Clear();
+            txtCartonQuantity.Clear();
+            txtPerQuantity.Clear();
+            txtTotalPrice.Clear();
+            cmbProduct.SelectedIndex = -1;
+            LoadData();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            _Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Product selected = (Product)cmbProduct.SelectedItem;
+                if (selected is null)
+                {
+                    throw new Exception("Please enter a Product.");
+                }
+                // validate the form inputs
+                else if (string.IsNullOrWhiteSpace(txtQuantity.Text))
+                {
+                    throw new Exception("Please enter a  quantity.");
+                }
+                else if (string.IsNullOrWhiteSpace(txtTotalPrice.Text))
+                {
+                    throw new Exception("Please enter a  Total price.");
+
+                }
+                else if (string.IsNullOrWhiteSpace(txtPrice.Text))
+                {
+                    throw new Exception("Please enter a  price.");
+
+                }
+                var productsingle = _productRepository.GetById(selected.Id);
+                if (productsingle.StockIn <= 0)
+                {
+                    throw new Exception($"The {selected.ProductName}  is currently out of stock. Please purchase it from the nearest shop.");
+                }
+                if (string.IsNullOrEmpty(txId.Text))
+                {
+                    ProductSales _productsales = new(selected.Id, Convert.ToInt32(txtQuantity.Text),
+                        Convert.ToDecimal(txtPrice.Text), todayDate.Value, Convert.ToDecimal(txtTotalPrice.Text));
+
+                    productsingle.SetStockOut(Convert.ToInt32(txtQuantity.Text));
+
+                    _productsales.AddProduct(productsingle);
+
+                    _productSalesRepository.Add(_productsales);
+                    _productRepository.Update(productsingle);
+                }
+                else
+                {
+                    ProductSales productsales = _productSalesRepository.GetById(int.Parse(txId.Text));
+                    int remainingQuentity = (productsingle.StockIn + productsales.Quantity) - int.Parse(txtQuantity.Text);
+
+
+                    productsales.SetDetail(
+                   productsingle.Id,
+                   int.Parse(txtQuantity.Text),
+                   decimal.Parse(txtPrice.Text),
+                  todayDate.Value,
+                  Convert.ToDecimal(txtTotalPrice.Text));
+
+                    productsingle.SetRemainingQuantity(remainingQuentity);
+                    _productRepository.Update(productsingle);
+                    _productSalesRepository.Update(productsales);
+
+                }
+
+
+                MessageBox.Show("Product sales saved successfully.");
+
+                _Refresh();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var selectedProduct = dataGridView1.CurrentRow?.DataBoundItem as ProductSalesModel;
+
+            if (selectedProduct != null)
+            {
+                // Ask the user for confirmation
+                var result = MessageBox.Show($"Are you sure you want to delete {selectedProduct.ProductName}?",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // Delete the product from the database
+
+                        ProductSales productSales = _productSalesRepository.GetById(selectedProduct.ProductSalesId);
+                        var productsingle = _productRepository.GetById(productSales.ProductId);
+
+                        int remainingQuentity = productsingle.StockIn + productSales.Quantity;
+                        productsingle.SetRemainingQuantity(remainingQuentity);
+                        _productRepository.Update(productsingle);
+                        _productSalesRepository.Remove(selectedProduct.ProductSalesId);
+                        // Refresh the data
+
+                        _Refresh();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while deleting the product: {ex.Message}",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a product to delete.", "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Get the selected row's data
+                var product = (ProductSalesModel)_bindingSource[e.RowIndex];
+                var productPrice = _productSalesRepository.GetById(product.ProductSalesId);
+                _LoadProduct(productPrice.ProductId);
+                // Fill the win form with the selected row's data
+                txtQuantity.Text = product.Quantity.ToString();
+                txId.Text = product.ProductSalesId.ToString();
+                cmbProduct.SelectedValue = productPrice.ProductId;
+                cmbProduct.SelectedItem = product.ProductName;
+                txtPrice.Text = product.PricePer.ToString();
+                cmbProduct.SelectedItem = "Non-Carton";
+                txtTotalPrice.Text = productPrice.TotalPrice.ToString();
+            }
+        }
+
+        private void txtQuantity_TextChanged(object sender, EventArgs e)
+        {
+            var selectedValue = cmbType.SelectedItem?.ToString();
+            if (selectedValue == "Carton" && !string.IsNullOrEmpty(txtPerQuantity.Text)
+                && !string.IsNullOrEmpty(txtCartonQuantity.Text) && !string.IsNullOrEmpty(txtCartonPrice.Text))
+            {
+                int totalQuantity = (Convert.ToInt32(txtPerQuantity.Text) * Convert.ToInt32(txtCartonQuantity.Text));
+                txtQuantity.Text = totalQuantity.ToString();
+                txtPrice.Text = (Convert.ToDecimal(txtCartonPrice.Text) / Convert.ToDecimal(totalQuantity)).ToString("F2");
+            }
+            if (!string.IsNullOrEmpty(txtTotalPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
+            {
+                txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+            }
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTotalPrice.Text))
+            {
+                if (!string.IsNullOrEmpty(txtPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
+                {
+                    txtTotalPrice.Text = (Convert.ToDecimal(txtPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+                }
+            }
+        }
+
+        private void cmbProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Product selected = (Product)cmbProduct.SelectedItem;
+            if (selected is not null)
+            {
+                var productsingle = _productRepository.GetById(selected.Id);
+                txtPrice.Text = productsingle.RetailPrice.ToString();
+                txtTotalPrice.Text = productsingle.RetailPrice.ToString();
+                txtQuantity.Text = "1";
+            }
+            else
+            {
+                txtPrice.Clear();
+                txtQuantity.Clear();
+                txtTotalPrice.Clear();
+            }
+
         }
     }
 }

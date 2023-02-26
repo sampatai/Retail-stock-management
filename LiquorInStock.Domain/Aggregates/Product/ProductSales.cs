@@ -9,7 +9,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
         public ProductSales(int productId,
             int quantity,
             decimal price,
-            DateTime addOn,
+            DateTime addedOn,
              decimal totalPrice
             )
         {
@@ -17,7 +17,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
             ProductId = Guard.Against.NegativeOrZero(productId);
             Price = Guard.Against.NegativeOrZero(price);
             Quantity = Guard.Against.NegativeOrZero(quantity);
-            AddedOn = addOn;
+            AddedOn = addedOn;
             TotalPrice = Guard.Against.NegativeOrZero(totalPrice);
         }
 

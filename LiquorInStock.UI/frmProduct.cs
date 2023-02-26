@@ -233,7 +233,7 @@ namespace Retail.Stock.UI
                 MessageBox.Show("Product saved successfully.");
 
                 // clear the form inputs
-             
+
                 _Refresh();
             }
             catch (Exception ex)

@@ -126,6 +126,7 @@ namespace Retail.Stock.UI
                 txtQuantity.Text = totalQuantity.ToString();
                 txtPrice.Text = (Convert.ToDecimal(txtCartonPrice.Text) / Convert.ToDecimal(totalQuantity)).ToString("F2");
             }
+
         }
 
         private void txtCartonQuantity_Click(object sender, EventArgs e)
@@ -219,6 +220,11 @@ namespace Retail.Stock.UI
                     throw new Exception("Please enter a  price.");
 
                 }
+                else if (string.IsNullOrWhiteSpace(txtTotalPrice.Text))
+                {
+                    throw new Exception("Please enter a  price.");
+
+                }
                 var productsingle = _productRepository.GetById(selected.Id);
                 if (string.IsNullOrEmpty(txId.Text))
                 {
@@ -238,7 +244,10 @@ namespace Retail.Stock.UI
                 {
                     ProductPrice productPrice = _productPriceRepository.GetById(int.Parse(txId.Text));
                     int remainingQuentity = (productsingle.StockIn + int.Parse(txtQuantity.Text)) - productPrice.Quantity;
-
+                    if (remainingQuentity < 0)
+                    {
+                        throw new Exception($"When you're editing, the remaining item may appear as a negative value. Please review the quantity");
+                    }
 
                     productPrice.SetDetail(
                    productsingle.Id,
@@ -343,7 +352,7 @@ namespace Retail.Stock.UI
                         _productPriceRepository.Remove(selectedProduct.ProductPriceId);
                         // Refresh the data
 
-                        LoadData();
+                        _Refresh();
                     }
                     catch (Exception ex)
                     {
@@ -374,6 +383,24 @@ namespace Retail.Stock.UI
 
         private void txtPrice_TextChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtTotalPrice.Text))
+            {
+                if (!string.IsNullOrEmpty(txtPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
+                {
+                    txtTotalPrice.Text = (Convert.ToDecimal(txtPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+                }
+            }
+
+        }
+
+        private void txtQuantity_TextChanged_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPrice.Text)){
+                if (!string.IsNullOrEmpty(txtTotalPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
+                {
+                    txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+                }
+            }
 
         }
     }
