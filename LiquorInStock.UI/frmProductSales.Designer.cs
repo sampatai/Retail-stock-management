@@ -62,6 +62,8 @@
             label10 = new Label();
             miniToolStrip = new StatusStrip();
             panel1 = new Panel();
+            txtTotalPrice = new TextBox();
+            label11 = new Label();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
@@ -72,6 +74,8 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(txtTotalPrice);
+            panel2.Controls.Add(label11);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(todayDate);
             panel2.Controls.Add(label9);
@@ -132,7 +136,7 @@
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(290, 249);
+            txtPrice.Location = new Point(519, 237);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(100, 23);
             txtPrice.TabIndex = 28;
@@ -140,7 +144,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(207, 252);
+            label8.Location = new Point(437, 242);
             label8.Name = "label8";
             label8.Size = new Size(53, 15);
             label8.TabIndex = 27;
@@ -148,7 +152,7 @@
             // 
             // txtQuantity
             // 
-            txtQuantity.Location = new Point(290, 218);
+            txtQuantity.Location = new Point(290, 193);
             txtQuantity.Name = "txtQuantity";
             txtQuantity.Size = new Size(100, 23);
             txtQuantity.TabIndex = 26;
@@ -156,7 +160,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(207, 221);
+            label7.Location = new Point(207, 196);
             label7.Name = "label7";
             label7.Size = new Size(53, 15);
             label7.TabIndex = 25;
@@ -173,7 +177,7 @@
             // 
             // txtCartonPrice
             // 
-            txtCartonPrice.Location = new Point(290, 151);
+            txtCartonPrice.Location = new Point(519, 114);
             txtCartonPrice.Name = "txtCartonPrice";
             txtCartonPrice.Size = new Size(100, 23);
             txtCartonPrice.TabIndex = 22;
@@ -182,7 +186,7 @@
             // 
             // txtPerQuantity
             // 
-            txtPerQuantity.Location = new Point(290, 188);
+            txtPerQuantity.Location = new Point(290, 153);
             txtPerQuantity.Name = "txtPerQuantity";
             txtPerQuantity.Size = new Size(100, 23);
             txtPerQuantity.TabIndex = 20;
@@ -230,7 +234,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(191, 191);
+            label3.Location = new Point(191, 156);
             label3.Name = "label3";
             label3.Size = new Size(73, 15);
             label3.TabIndex = 15;
@@ -240,7 +244,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(189, 154);
+            label2.Location = new Point(418, 117);
             label2.Name = "label2";
             label2.Size = new Size(72, 15);
             label2.TabIndex = 14;
@@ -397,6 +401,23 @@
             panel1.Size = new Size(1211, 699);
             panel1.TabIndex = 1;
             // 
+            // txtTotalPrice
+            // 
+            txtTotalPrice.Location = new Point(292, 237);
+            txtTotalPrice.Name = "txtTotalPrice";
+            txtTotalPrice.Size = new Size(100, 23);
+            txtTotalPrice.TabIndex = 34;
+            txtTotalPrice.TextChanged += txtTotalPrice_TextChanged;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(211, 241);
+            label11.Name = "label11";
+            label11.Size = new Size(61, 15);
+            label11.TabIndex = 33;
+            label11.Text = "Price Total";
+            // 
             // frmProductSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -453,5 +474,7 @@
         private Panel panel1;
         private Label label6;
         private DateTimePicker todayDate;
+        private TextBox txtTotalPrice;
+        private Label label11;
     }
 }

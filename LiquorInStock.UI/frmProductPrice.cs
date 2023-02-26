@@ -166,7 +166,7 @@ namespace Retail.Stock.UI
                 ProductName = productsList.Where(s => s.Id.Equals(x.ProductId)).FirstOrDefault()?.ProductName,
                 Quantity = x.Quantity,
                 PurchasedPrice = x.Price,
-                TotaPurchasedPrice = x.Price * x.Quantity,
+                TotaPurchasedPrice = x.TotalPrice,
                 SellingPrice = x.SellingPrice,
                 TotalSellingPrice = x.SellingPrice * x.Quantity,
             }).ToList();
@@ -223,7 +223,7 @@ namespace Retail.Stock.UI
                 if (string.IsNullOrEmpty(txId.Text))
                 {
                     ProductPrice _productPrice = new(selected.Id, Convert.ToInt32(txtQuantity.Text),
-                        Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSellingPrice.Text));
+                        Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSellingPrice.Text), Convert.ToDecimal(txtTotalPrice.Text));
 
                     productsingle.SetPurchasedPrice(Convert.ToDecimal(txtPrice.Text));
                     productsingle.SetRetailPrice(Convert.ToDecimal(txtSellingPrice.Text));
@@ -244,7 +244,7 @@ namespace Retail.Stock.UI
                    productsingle.Id,
                    int.Parse(txtQuantity.Text),
                    decimal.Parse(txtPrice.Text),
-                   decimal.Parse(txtSellingPrice.Text));
+                   decimal.Parse(txtSellingPrice.Text), Convert.ToDecimal(txtTotalPrice.Text));
 
 
 
@@ -289,6 +289,7 @@ namespace Retail.Stock.UI
             txtCartonPrice.Clear();
             txtCartonQuantity.Clear();
             txtPerQuantity.Clear();
+            txtTotalPrice.Clear();
             cmbProduct.SelectedIndex = -1;
             LoadData();
         }
@@ -308,6 +309,7 @@ namespace Retail.Stock.UI
                 txtPrice.Text = product.PurchasedPrice.ToString();
                 txtSellingPrice.Text = product.SellingPrice.ToString();
                 cmbProduct.SelectedItem = "Non-Carton";
+                txtTotalPrice.Text = productPrice.TotalPrice.ToString();
             }
         }
 
@@ -355,6 +357,24 @@ namespace Retail.Stock.UI
                 MessageBox.Show("Please select a product to delete.", "Information",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtTotalPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
+            {
+                txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+            }
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

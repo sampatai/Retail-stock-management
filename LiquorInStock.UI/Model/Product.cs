@@ -32,4 +32,15 @@ namespace Retail.Stock.UI.Model
         public decimal TotalSellingPrice { get; set; } 
 
     }
+
+    public class ProductSalesModel
+    {
+        public int Id { get; set; }
+        public int ProductSalesId { get; set; }
+        public string ProductName { get; set; }
+        public int Quantity { get; set; }
+        public decimal SellingPrice { get; set; }
+        public decimal TotalProfit { get; set; }
+
+    }
 }

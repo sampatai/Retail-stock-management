@@ -42,6 +42,8 @@
             comboBox1 = new ComboBox();
             label10 = new Label();
             panel2 = new Panel();
+            txtTotalPrice = new TextBox();
+            label11 = new Label();
             label9 = new Label();
             txId = new TextBox();
             txtPrice = new TextBox();
@@ -85,9 +87,9 @@
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel4);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 392);
+            panel3.Location = new Point(0, 368);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1015, 307);
+            panel3.Size = new Size(1015, 331);
             panel3.TabIndex = 1;
             // 
             // panel5
@@ -96,7 +98,7 @@
             panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(0, 95);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1015, 212);
+            panel5.Size = new Size(1015, 236);
             panel5.TabIndex = 1;
             // 
             // dataGridView1
@@ -106,7 +108,7 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1015, 212);
+            dataGridView1.Size = new Size(1015, 236);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
@@ -198,6 +200,8 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(txtTotalPrice);
+            panel2.Controls.Add(label11);
             panel2.Controls.Add(label9);
             panel2.Controls.Add(txId);
             panel2.Controls.Add(txtPrice);
@@ -220,8 +224,25 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1015, 392);
+            panel2.Size = new Size(1015, 368);
             panel2.TabIndex = 0;
+            // 
+            // txtTotalPrice
+            // 
+            txtTotalPrice.Location = new Point(290, 218);
+            txtTotalPrice.Name = "txtTotalPrice";
+            txtTotalPrice.Size = new Size(100, 23);
+            txtTotalPrice.TabIndex = 32;
+            txtTotalPrice.TextChanged += textBox1_TextChanged;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(205, 222);
+            label11.Name = "label11";
+            label11.Size = new Size(61, 15);
+            label11.TabIndex = 31;
+            label11.Text = "Price Total";
             // 
             // label9
             // 
@@ -242,23 +263,25 @@
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(290, 249);
+            txtPrice.Location = new Point(490, 219);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(100, 23);
             txtPrice.TabIndex = 28;
+            txtPrice.TextChanged += txtPrice_TextChanged;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(207, 252);
+            label8.Location = new Point(425, 223);
             label8.Name = "label8";
             label8.Size = new Size(53, 15);
             label8.TabIndex = 27;
             label8.Text = "Price Per";
+            label8.Click += label8_Click;
             // 
             // txtQuantity
             // 
-            txtQuantity.Location = new Point(290, 218);
+            txtQuantity.Location = new Point(290, 179);
             txtQuantity.Name = "txtQuantity";
             txtQuantity.Size = new Size(100, 23);
             txtQuantity.TabIndex = 26;
@@ -267,7 +290,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(207, 221);
+            label7.Location = new Point(213, 184);
             label7.Name = "label7";
             label7.Size = new Size(53, 15);
             label7.TabIndex = 25;
@@ -275,7 +298,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(284, 323);
+            button1.Location = new Point(284, 312);
             button1.Name = "button1";
             button1.Size = new Size(106, 41);
             button1.TabIndex = 24;
@@ -285,14 +308,14 @@
             // 
             // txtSellingPrice
             // 
-            txtSellingPrice.Location = new Point(290, 278);
+            txtSellingPrice.Location = new Point(290, 257);
             txtSellingPrice.Name = "txtSellingPrice";
             txtSellingPrice.Size = new Size(100, 23);
             txtSellingPrice.TabIndex = 23;
             // 
             // txtCartonPrice
             // 
-            txtCartonPrice.Location = new Point(290, 151);
+            txtCartonPrice.Location = new Point(490, 120);
             txtCartonPrice.Name = "txtCartonPrice";
             txtCartonPrice.Size = new Size(100, 23);
             txtCartonPrice.TabIndex = 22;
@@ -302,7 +325,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(189, 281);
+            label6.Location = new Point(189, 262);
             label6.Name = "label6";
             label6.Size = new Size(71, 15);
             label6.TabIndex = 21;
@@ -310,7 +333,7 @@
             // 
             // txtPerQuantity
             // 
-            txtPerQuantity.Location = new Point(290, 188);
+            txtPerQuantity.Location = new Point(290, 143);
             txtPerQuantity.Name = "txtPerQuantity";
             txtPerQuantity.Size = new Size(100, 23);
             txtPerQuantity.TabIndex = 20;
@@ -359,7 +382,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(191, 191);
+            label3.Location = new Point(191, 146);
             label3.Name = "label3";
             label3.Size = new Size(73, 15);
             label3.TabIndex = 15;
@@ -369,7 +392,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(189, 154);
+            label2.Location = new Point(412, 122);
             label2.Name = "label2";
             label2.Size = new Size(72, 15);
             label2.TabIndex = 14;
@@ -449,5 +472,7 @@
         private DateTimePicker dateTimePicker1;
         private Button button6;
         private Label lblTotalDisplay;
+        private TextBox txtTotalPrice;
+        private Label label11;
     }
 }
