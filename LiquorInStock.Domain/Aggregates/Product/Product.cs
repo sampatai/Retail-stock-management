@@ -44,7 +44,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
         }
         public void SetStockIn(int quantity)
         {
-            StockIn = +quantity;
+            StockIn += quantity;
         }
         public void SetRemainingQuantity(int quantity)
         {

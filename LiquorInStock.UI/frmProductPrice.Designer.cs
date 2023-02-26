@@ -69,6 +69,7 @@
             label1 = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            lblTotalDisplay = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
@@ -102,9 +103,9 @@
             // 
             panel5.Controls.Add(dataGridView1);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(0, 100);
+            panel5.Location = new Point(0, 147);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1015, 207);
+            panel5.Size = new Size(1015, 160);
             panel5.TabIndex = 1;
             // 
             // dataGridView1
@@ -114,12 +115,13 @@
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1015, 207);
+            dataGridView1.Size = new Size(1015, 160);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // panel4
             // 
+            panel4.Controls.Add(lblTotalDisplay);
             panel4.Controls.Add(statusStrip1);
             panel4.Controls.Add(button5);
             panel4.Controls.Add(button6);
@@ -135,13 +137,13 @@
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1015, 100);
+            panel4.Size = new Size(1015, 147);
             panel4.TabIndex = 0;
             // 
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 78);
+            statusStrip1.Location = new Point(0, 125);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(1015, 22);
             statusStrip1.TabIndex = 22;
@@ -160,6 +162,7 @@
             button5.TabIndex = 16;
             button5.Text = "Delete";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -454,6 +457,15 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
+            // lblTotalDisplay
+            // 
+            lblTotalDisplay.AutoSize = true;
+            lblTotalDisplay.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point);
+            lblTotalDisplay.Location = new Point(765, 97);
+            lblTotalDisplay.Name = "lblTotalDisplay";
+            lblTotalDisplay.Size = new Size(0, 21);
+            lblTotalDisplay.TabIndex = 23;
+            // 
             // frmProductPrice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -518,5 +530,6 @@
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ContextMenuStrip contextMenuStrip1;
+        private Label lblTotalDisplay;
     }
 }

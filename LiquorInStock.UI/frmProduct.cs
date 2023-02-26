@@ -233,10 +233,8 @@ namespace Retail.Stock.UI
                 MessageBox.Show("Product saved successfully.");
 
                 // clear the form inputs
-                txtName.Clear();
-                TxtId.Clear();
-                cmbCategory.SelectedIndex = -1;
-                LoadData();
+             
+                _Refresh();
             }
             catch (Exception ex)
             {
@@ -250,9 +248,18 @@ namespace Retail.Stock.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
+            _Refresh();
+        }
+
+        private void _Refresh()
+        {
+            cmbCategory.Refresh();
             Category selectedCategory = (Category)cmbCategory.SelectedItem;
             _CategoryId = null;
             _productName = "";
+            txtName.Clear();
+            TxtId.Clear();
+            cmbCategory.SelectedIndex = -1;
             LoadData();
         }
 

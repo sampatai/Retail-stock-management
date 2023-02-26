@@ -8,11 +8,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Retail.Stock.UI
@@ -205,6 +207,17 @@ namespace Retail.Stock.UI
                     currentPage, totalPages, pageSize, totalRecords);
                 toolStripStatusLabel1.Text = displayInfo;
             };
+            int totalQuantity = 0;
+            decimal totalAmount = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                totalQuantity += Convert.ToInt32(row.Cells["Quantity"].Value);
+                totalAmount += Convert.ToDecimal(row.Cells["TotaPurchasedPrice"].Value);
+            }
+            var displayInfo = string.Format("Total Quantity: {0} || Total Amount: {1}",
+                   totalQuantity, totalAmount.ToString("F"));
+            lblTotalDisplay.Text = displayInfo;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -270,16 +283,8 @@ namespace Retail.Stock.UI
 
 
                 MessageBox.Show("Product price saved successfully.");
-                txId.Clear();
-                txtQuantity.Clear();
-                txtPrice.Clear();
-                txtSellingPrice.Clear();
-                txtCartonPrice.Clear();
-                txtCartonQuantity.Clear();
-                txtPerQuantity.Clear();
-                cmbProduct.Enabled = true;
-                cmbProduct.SelectedIndex = -1;
-                LoadData();
+               
+                _Refresh();
             }
             catch (Exception ex)
             {
@@ -327,8 +332,22 @@ namespace Retail.Stock.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Refresh();
+        }
+        void _Refresh()
+        {
             dateTimePicker1.Value = _startDate; dateTimePicker2.Value = _endDate;
             comboBox1.SelectedIndex = -1;
+            comboBox1.Refresh();
+            cmbProduct.Refresh();
+            txId.Clear();
+            txtQuantity.Clear();
+            txtPrice.Clear();
+            txtSellingPrice.Clear();
+            txtCartonPrice.Clear();
+            txtCartonQuantity.Clear();
+            txtPerQuantity.Clear();          
+            cmbProduct.SelectedIndex = -1;
             LoadData();
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -353,6 +372,47 @@ namespace Retail.Stock.UI
         private void button6_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var selectedProduct = dataGridView1.CurrentRow?.DataBoundItem as ProductPriceModel;
+
+            if (selectedProduct != null)
+            {
+                // Ask the user for confirmation
+                var result = MessageBox.Show($"Are you sure you want to delete {selectedProduct.ProductName}?",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // Delete the product from the database
+
+                        ProductPrice productPrice = _productPriceRepository.GetById(selectedProduct.ProductPriceId);
+                        var productsingle = _productRepository.GetById(productPrice.ProductId);
+
+                        int remainingQuentity = productsingle.StockIn - productPrice.Quantity;
+                        productsingle.SetRemainingQuantity(remainingQuentity);
+                        _productRepository.Update(productsingle);
+                        _productPriceRepository.Remove(selectedProduct.ProductPriceId);
+                        // Refresh the data
+                        _pageIndex = 1;
+                        LoadData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while deleting the product: {ex.Message}",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a product to delete.", "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
