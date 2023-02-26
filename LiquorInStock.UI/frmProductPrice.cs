@@ -23,10 +23,7 @@ namespace Retail.Stock.UI
     {
         private readonly IProductPriceRepository _productPriceRepository;
         private readonly IProductRepository _productRepository;
-        private int _pageSize = 25;
-        private int _pageIndex = 1;
-        private int _totalPages = 1;
-        private int _totalRecords = 0;
+   
         private BindingSource _bindingSource = new BindingSource();
         private DateTime _startDate = DateTime.Today.AddDays(-15);
         private DateTime _endDate = DateTime.Today;
@@ -160,9 +157,9 @@ namespace Retail.Stock.UI
             _endDate = dateTimePicker2.Value;
             _productId = string.IsNullOrEmpty(comboBox1.SelectedValue?.ToString()) ? null : Convert.ToInt32(comboBox1.SelectedValue);
             var products = _productPriceRepository
-                .GetPage(_pageIndex, _pageSize, _productId, _startDate, _endDate);
+                .GetPage( _productId, _startDate, _endDate);
             List<Product> productsList = _productRepository.GetAll().ToList();
-            var data = products.Result.Select(x => new ProductPriceModel()
+            var data = products.Select(x => new ProductPriceModel()
             {
 
                 ProductPriceId = x.Id,
@@ -173,11 +170,7 @@ namespace Retail.Stock.UI
                 SellingPrice = x.SellingPrice,
                 TotalSellingPrice = x.SellingPrice * x.Quantity,
             }).ToList();
-            _totalRecords = products.TotalPage;
-
-            // Calculate the total number of pages
-            _totalPages = (int)Math.Ceiling((double)_totalRecords / _pageSize);
-
+          
             // Set the data source of the binding source
             _bindingSource.DataSource = data;
             dataGridView1.ReadOnly = true;
@@ -187,26 +180,9 @@ namespace Retail.Stock.UI
             // Show the row numbers
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.CellFormatting += (sender, e) =>
-            {
-                if (e.ColumnIndex == 0 && e.RowIndex >= 0)
-                {
-                    e.Value = (e.RowIndex + 1) + ((_pageIndex - 1) * _pageSize);
-                    e.FormattingApplied = false;
-                }
-            };
+          
 
-            dataGridView1.CurrentCellChanged += (sender, e) =>
-            {
-                var currentPage = _pageIndex;
-                var totalPages = _totalPages;
-                var totalRecords = _totalRecords;
-                var pageSize = _pageSize;
-
-                var displayInfo = string.Format("Page {0} of {1} ({2} records per page, {3} total records)",
-                    currentPage, totalPages, pageSize, totalRecords);
-                toolStripStatusLabel1.Text = displayInfo;
-            };
+           
             int totalQuantity = 0;
             decimal totalAmount = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -293,43 +269,9 @@ namespace Retail.Stock.UI
             }
         }
 
-        private void btnFirstPage_Click(object sender, EventArgs e)
-        {
-            if (_pageIndex != 1)
-            {
-                _pageIndex = 1;
-                LoadData();
-            }
-        }
+      
 
-        private void BtnPreviousPage_Click(object sender, EventArgs e)
-        {
-            if (_pageIndex > 1)
-            {
-                _pageIndex--;
-                LoadData();
-            }
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (_pageIndex < _totalPages)
-            {
-                _pageIndex++;
-                LoadData();
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (_pageIndex != _totalPages)
-            {
-                _pageIndex = _totalPages;
-                LoadData();
-            }
-        }
-
+       
         private void button4_Click(object sender, EventArgs e)
         {
             Refresh();
@@ -398,7 +340,7 @@ namespace Retail.Stock.UI
                         _productRepository.Update(productsingle);
                         _productPriceRepository.Remove(selectedProduct.ProductPriceId);
                         // Refresh the data
-                        _pageIndex = 1;
+                        
                         LoadData();
                     }
                     catch (Exception ex)

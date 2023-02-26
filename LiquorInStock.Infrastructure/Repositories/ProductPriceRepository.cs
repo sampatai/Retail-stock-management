@@ -36,7 +36,7 @@ namespace Retail.Stock.Infrastructure.Repositories
             }
         }
 
-        public (IEnumerable<ProductPrice> Result, int TotalPage) GetPage(int pageIndex, int pageSize,
+        public IEnumerable<ProductPrice> GetPage(
             int? ProductId = null, DateTime? start = null, DateTime? end = null)
         {
             using (var db = _databaseProvider.GetDatabase())
@@ -48,12 +48,10 @@ namespace Retail.Stock.Infrastructure.Repositories
                           //.Include(x => x.Products)
                           .Query()
                           .Where(s => s.AddedOn >= start && s.AddedOn <= end && s.ProductId.Equals(ProductId))
-                          .OrderByDescending(x => x.Id)
-                          .Skip((pageIndex - 1) * pageSize)
-                          .Limit(pageSize)
+                          .OrderByDescending(x => x.Id)                       
                           .ToList();
 
-                    return (result, products.Count());
+                    return result;
                 }
                 else
                 {
@@ -63,10 +61,9 @@ namespace Retail.Stock.Infrastructure.Repositories
                         .Query()
                         .Where(s => s.AddedOn >= start && s.AddedOn <= end)
                         .OrderByDescending(x => x.Id)
-                        .Skip((pageIndex - 1) * pageSize)
-                        .Limit(pageSize)
+                        
                         .ToList();
-                    return (result, products.Count());
+                    return result;
                 }
             }
         }

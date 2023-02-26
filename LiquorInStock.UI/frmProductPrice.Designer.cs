@@ -206,7 +206,7 @@
             button3.TabIndex = 12;
             button3.Text = "Last Page";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            
             // 
             // button2
             // 
@@ -216,7 +216,7 @@
             button2.TabIndex = 11;
             button2.Text = "Next Page";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+           
             // 
             // comboBox1
             // 
@@ -243,7 +243,7 @@
             btnFirstPage.TabIndex = 9;
             btnFirstPage.Text = "First Page";
             btnFirstPage.UseVisualStyleBackColor = true;
-            btnFirstPage.Click += btnFirstPage_Click;
+            
             // 
             // BtnPreviousPage
             // 
@@ -253,7 +253,7 @@
             BtnPreviousPage.TabIndex = 10;
             BtnPreviousPage.Text = "Previous Page";
             BtnPreviousPage.UseVisualStyleBackColor = true;
-            BtnPreviousPage.Click += BtnPreviousPage_Click;
+           
             // 
             // panel2
             // 

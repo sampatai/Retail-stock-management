@@ -14,7 +14,7 @@ namespace Retail.Stock.Application.Common
     {
         ProductPrice GetById(int id);
         IEnumerable<ProductPrice> GetAll();
-        (IEnumerable<ProductPrice> Result, int TotalPage) GetPage(int pageIndex, int pageSize,
+        IEnumerable<ProductPrice>  GetPage(
             int? ProductId = null, DateTime? start=null,DateTime? end = null);
         void Add(ProductPrice entity);
         void Update(ProductPrice entity);
