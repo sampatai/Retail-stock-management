@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj": {}
+    "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj": {
+    "D:\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj",
+        "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj",
         "projectName": "Retail.Stock.Application",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Application\\obj\\",
+        "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj",
+        "packagesPath": "C:\\Users\\sampat.adhikari\\.nuget\\packages\\",
+        "outputPath": "D:\\Retail-stock-management\\LiquorInStock.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sampat.adhikari\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +31,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj"
+              "D:\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj": {
+                "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj"
               },
-              "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj"
+              "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {
+                "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj"
               }
             }
           }
@@ -62,21 +65,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj": {
+    "D:\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj",
+        "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj",
         "projectName": "Retail.Stock.Domain",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Domain\\obj\\",
+        "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Domain\\Retail.Stock.Domain.csproj",
+        "packagesPath": "C:\\Users\\sampat.adhikari\\.nuget\\packages\\",
+        "outputPath": "D:\\Retail-stock-management\\LiquorInStock.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sampat.adhikari\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -90,8 +96,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj"
+              "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {
+                "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj"
               }
             }
           }
@@ -131,21 +137,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj": {
+    "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj",
         "projectName": "Retail.Stock.Infrastructure",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Infrastructure\\obj\\",
+        "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\Retail.Stock.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\sampat.adhikari\\.nuget\\packages\\",
+        "outputPath": "D:\\Retail-stock-management\\LiquorInStock.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sampat.adhikari\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -159,8 +168,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj": {
-                "projectPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj"
+              "D:\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj": {
+                "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Application\\Retail.Stock.Application.csproj"
               }
             }
           }
@@ -204,21 +213,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {
+    "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
+        "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
         "projectName": "Retail.Stock.Shared",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\obj\\",
+        "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
+        "packagesPath": "C:\\Users\\sampat.adhikari\\.nuget\\packages\\",
+        "outputPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sampat.adhikari\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -269,7 +281,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {}
+    "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {
+    "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
+        "projectUniqueName": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
         "projectName": "Retail.Stock.Shared",
-        "projectPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lenovo\\Documents\\Retail-stock-management\\LiquorInStock.Shared\\obj\\",
+        "projectPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\Retail.Stock.Shared.csproj",
+        "packagesPath": "C:\\Users\\sampat.adhikari\\.nuget\\packages\\",
+        "outputPath": "D:\\Retail-stock-management\\LiquorInStock.Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sampat.adhikari\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

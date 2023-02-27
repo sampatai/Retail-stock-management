@@ -21,7 +21,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
             SellingPrice = Guard.Against.NegativeOrZero(sellingPrice);
             Quantity = Guard.Against.NegativeOrZero(quantity);
             AddedOn = DateTime.Today;
-            TotalPrice = Guard.Against.NegativeOrZero(totalPrice);
+            TotalPrice = totalPrice;
         }
 
         public int ProductId { get; private set; }
