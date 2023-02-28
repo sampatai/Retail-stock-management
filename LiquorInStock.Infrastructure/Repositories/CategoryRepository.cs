@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Retail.Stock.Application.Common;
 using Retail.Stock.Domain.Aggregates.Category;
+using Retail.Stock.Domain.Aggregates.Product;
 using Retail.Stock.Shared.SeedWork;
 
 namespace Retail.Stock.Infrastructure.Repositories
@@ -38,6 +39,14 @@ namespace Retail.Stock.Infrastructure.Repositories
             }
         }
 
+        public bool CheckProduct(int id)
+        {
+            using (var db = _databaseProvider.GetDatabase())
+            {
+                return db.GetCollection<Product>().Query().Where(x => x.CategoryId == id).Exists();
+            }
+        }
+
         public void Delete(int id)
         {
             try
@@ -65,19 +74,28 @@ namespace Retail.Stock.Infrastructure.Repositories
 
         public IEnumerable<Category> GetAll()
         {
-            // create a new instance of LiteDatabase
-            using (var db = _databaseProvider.GetDatabase())
+            try
             {
-                // get a reference to the collection
-                var categories = db.GetCollection<Category>("Categories");
+                // create a new instance of LiteDatabase
+                using (var db = _databaseProvider.GetDatabase())
+                {
+                    // get a reference to the collection
+                    var categories = db.GetCollection<Category>("Categories");
 
-                // select all categories
-                var results = categories.FindAll();
+                    // select all categories
+                    var results = categories.FindAll();
 
 
-                return results.ToList(); ;
-                // select a specific category by name
+                    return results.ToList(); ;
+                    // select a specific category by name
 
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "");
+                throw;
             }
         }
 
@@ -111,7 +129,7 @@ namespace Retail.Stock.Infrastructure.Repositories
                 {
                     // get a reference to the collection
                     var categories = db.GetCollection<Category>("Categories");
-                    
+
                     // update the category in the collection
                     categories.Update(category);
                 }

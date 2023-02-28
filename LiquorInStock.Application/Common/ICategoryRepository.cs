@@ -10,5 +10,6 @@ namespace Retail.Stock.Application.Common
         public void Delete(int id);
         public Category GetById(int id);
         public IEnumerable<Category> GetAll();
+        public bool CheckProduct(int id);
     }
 }

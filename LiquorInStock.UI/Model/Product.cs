@@ -44,6 +44,7 @@ namespace Retail.Stock.UI.Model
         public decimal TotalPrice { get; set; }
         public decimal ProfitPer { get; set; }
         public decimal TotalProfit { get; set; }
+        public DateTime  Date { get; set; } 
 
     }
 }

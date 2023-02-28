@@ -92,7 +92,12 @@ namespace Retail.Stock.UI
                 // Get the row data
                 int id = Convert.ToInt32(row.Cells["Id"].Value);
                 string name = row.Cells["CategoryName"].Value.ToString();
-
+                bool hasTrue = _categoryRepository.CheckProduct(id);
+                if (hasTrue)
+                {
+                    MessageBox.Show($"Before deleteing {name}. Please delete product of {name} first.");
+                    return;
+                }
                 // Append the row data to the confirmation message
                 message += $"Id: {id}, Name: {name}\n";
             }

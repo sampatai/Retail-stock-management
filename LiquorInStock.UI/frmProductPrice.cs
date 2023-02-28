@@ -349,10 +349,13 @@ namespace Retail.Stock.UI
 
                         ProductPrice productPrice = _productPriceRepository.GetById(selectedProduct.ProductPriceId);
                         var productsingle = _productRepository.GetById(productPrice.ProductId);
+                        if (productsingle is not null)
+                        {
+                            int remainingQuentity = productsingle.StockIn - productPrice.Quantity;
+                            productsingle.SetRemainingQuantity(remainingQuentity);
+                            _productRepository.Update(productsingle);
+                        }
 
-                        int remainingQuentity = productsingle.StockIn - productPrice.Quantity;
-                        productsingle.SetRemainingQuantity(remainingQuentity);
-                        _productRepository.Update(productsingle);
                         _productPriceRepository.Remove(selectedProduct.ProductPriceId);
                         // Refresh the data
 
@@ -399,7 +402,8 @@ namespace Retail.Stock.UI
 
         private void txtQuantity_TextChanged_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPrice.Text)){
+            if (string.IsNullOrEmpty(txtPrice.Text))
+            {
                 if (!string.IsNullOrEmpty(txtTotalPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
                 {
                     txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString("F");

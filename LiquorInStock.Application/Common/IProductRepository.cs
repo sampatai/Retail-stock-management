@@ -13,6 +13,7 @@ namespace Retail.Stock.Application.Common
         void Add(Product entity);
         void Update(Product entity);
         void Remove(int id);
+        bool CheckUsedProduct(int id);
     }
 
    

@@ -125,5 +125,24 @@ namespace Retail.Stock.Infrastructure.Repositories
                 db.GetCollection<Product>().Delete(id);
             }
         }
+
+        public bool CheckUsedProduct(int id)
+        {
+            using (var db = _databaseProvider.GetDatabase())
+            {
+                bool productsale = db.GetCollection<ProductSales>().Query().Where(x => x.ProductId == id).Exists();
+
+                if (productsale)
+                {
+                    return productsale;
+                }
+                else
+                {
+                    bool productPrice = db.GetCollection<ProductPrice>().Query().Where(x => x.ProductId == id).Exists();
+                    return productPrice;
+                }
+
+            }
+        }
     }
 }

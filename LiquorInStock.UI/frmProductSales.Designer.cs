@@ -157,7 +157,7 @@
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(100, 23);
             txtPrice.TabIndex = 9;
-            txtPrice.TextChanged += txtPrice_TextChanged;
+            txtPrice.TextChanged += txtPerQuantity_TextChanged;
             // 
             // label8
             // 

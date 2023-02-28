@@ -20,7 +20,7 @@ namespace Retail.Stock.UI
         private readonly IProductRepository _productRepository;
         private readonly IProductSalesRepository _productSalesRepository;
         private BindingSource _bindingSource = new BindingSource();
-        private DateTime _startDate = DateTime.Today.AddDays(-15);
+        private DateTime _startDate = DateTime.Today;
         private DateTime _endDate = DateTime.Today;
         private int? _productId = null;
         public frmProductSales(IProductRepository productRepository,
@@ -98,6 +98,7 @@ namespace Retail.Stock.UI
             {
 
                 ProductSalesId = x.Id,
+                Date = x.AddedOn,
                 ProductName = productsList.Where(s => s.Id.Equals(x.ProductId))
                 .FirstOrDefault()?.ProductName,
                 Quantity = x.Quantity,
@@ -207,7 +208,7 @@ namespace Retail.Stock.UI
         {
             if (!string.IsNullOrEmpty(txtTotalPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
             {
-                txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+                txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString("F2");
             }
         }
 
@@ -227,7 +228,7 @@ namespace Retail.Stock.UI
             txtPerQuantity.Clear();
             txtTotalPrice.Clear();
             cmbProduct.SelectedIndex = -1;
-            
+
             LoadData();
         }
 
@@ -260,7 +261,14 @@ namespace Retail.Stock.UI
                     throw new Exception("Please enter a  price.");
 
                 }
+
                 var productsingle = _productRepository.GetById(selected.Id);
+                int remainingStock = (productsingle.StockIn - Convert.ToInt32(txtQuantity.Text));
+                if (remainingStock < 0)
+                {
+                    throw new Exception($"You only have {productsingle.StockIn} number of item in stock (Out of stock:{(productsingle.StockIn - Convert.ToInt32(txtQuantity.Text))}");
+
+                }
                 if (productsingle.StockIn <= 0)
                 {
                     throw new Exception($"The {selected.ProductName}  is currently out of stock. Please purchase it from the nearest shop.");
@@ -326,10 +334,13 @@ namespace Retail.Stock.UI
 
                         ProductSales productSales = _productSalesRepository.GetById(selectedProduct.ProductSalesId);
                         var productsingle = _productRepository.GetById(productSales.ProductId);
+                        if (productsingle is not null)
+                        {
+                            int remainingQuentity = productsingle.StockIn + productSales.Quantity;
+                            productsingle.SetRemainingQuantity(remainingQuentity);
+                            _productRepository.Update(productsingle);
+                        }
 
-                        int remainingQuentity = productsingle.StockIn + productSales.Quantity;
-                        productsingle.SetRemainingQuantity(remainingQuentity);
-                        _productRepository.Update(productsingle);
                         _productSalesRepository.Remove(selectedProduct.ProductSalesId);
                         // Refresh the data
 
@@ -385,7 +396,7 @@ namespace Retail.Stock.UI
             }
             if (!string.IsNullOrEmpty(txtTotalPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
             {
-                txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+                txtPrice.Text = (Convert.ToDecimal(txtTotalPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString("F2");
             }
         }
 
@@ -395,7 +406,7 @@ namespace Retail.Stock.UI
             {
                 if (!string.IsNullOrEmpty(txtPrice.Text) && !string.IsNullOrEmpty(txtQuantity.Text))
                 {
-                    txtTotalPrice.Text = (Convert.ToDecimal(txtPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString();
+                    txtTotalPrice.Text = (Convert.ToDecimal(txtPrice.Text) / Convert.ToDecimal(txtQuantity.Text)).ToString("F2");
                 }
             }
         }

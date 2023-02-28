@@ -300,6 +300,12 @@ namespace Retail.Stock.UI
 
             if (selectedProduct != null)
             {
+                bool hasTrue = _productRepository.CheckUsedProduct(selectedProduct.ProductId);
+                if (hasTrue)
+                {
+                    MessageBox.Show($"Before deleteing {selectedProduct.ProductName}. Please delete product purchased and product sales of {selectedProduct.ProductName} first.");
+                    return;
+                }
                 // Ask the user for confirmation
                 var result = MessageBox.Show($"Are you sure you want to delete {selectedProduct.ProductName}?",
                     "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
