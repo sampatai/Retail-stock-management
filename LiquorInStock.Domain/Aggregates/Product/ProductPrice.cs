@@ -12,7 +12,8 @@ namespace Retail.Stock.Domain.Aggregates.Product
             int quantity,
             decimal price,
             decimal sellingPrice,
-            decimal totalPrice
+            decimal totalPrice,
+            DateTime addedOn
             )
         {
             Id = ObjectId.NewObjectId().Increment;
@@ -20,7 +21,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
             Price = Guard.Against.NegativeOrZero(price);
             SellingPrice = Guard.Against.NegativeOrZero(sellingPrice);
             Quantity = Guard.Against.NegativeOrZero(quantity);
-            AddedOn = DateTime.Today;
+            AddedOn = addedOn;
             TotalPrice = Guard.Against.NegativeOrZero(totalPrice);
         }
 
@@ -37,7 +38,8 @@ namespace Retail.Stock.Domain.Aggregates.Product
             int quantity,
             decimal price,
             decimal pricePerQuantity,
-           decimal totalPrice)
+           decimal totalPrice,
+            DateTime addedOn)
         {
             ProductId = Guard.Against.NegativeOrZero(productId);
             Price = Guard.Against.NegativeOrZero(price);
@@ -45,6 +47,7 @@ namespace Retail.Stock.Domain.Aggregates.Product
             Quantity = Guard.Against.NegativeOrZero(quantity);
             UpdatedOn = DateTime.Today;
             TotalPrice = Guard.Against.NegativeOrZero(totalPrice);
+            AddedOn= addedOn;
         }
         public void AddProduct(Product product)
         {

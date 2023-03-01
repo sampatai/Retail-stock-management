@@ -173,6 +173,7 @@ namespace Retail.Stock.UI
                 TotaPurchasedPrice = x.TotalPrice,
                 SellingPrice = x.SellingPrice,
                 TotalSellingPrice = x.SellingPrice * x.Quantity,
+                Date = x.AddedOn
             }).ToList();
 
             // Set the data source of the binding source
@@ -232,7 +233,7 @@ namespace Retail.Stock.UI
                 if (string.IsNullOrEmpty(txId.Text))
                 {
                     ProductPrice _productPrice = new(selected.Id, Convert.ToInt32(txtQuantity.Text),
-                        Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSellingPrice.Text), Convert.ToDecimal(txtTotalPrice.Text));
+                        Convert.ToDecimal(txtPrice.Text), Convert.ToDecimal(txtSellingPrice.Text), Convert.ToDecimal(txtTotalPrice.Text), todayDate.Value);
 
                     productsingle.SetPurchasedPrice(Convert.ToDecimal(txtPrice.Text));
                     productsingle.SetRetailPrice(Convert.ToDecimal(txtSellingPrice.Text));
@@ -256,7 +257,7 @@ namespace Retail.Stock.UI
                    productsingle.Id,
                    int.Parse(txtQuantity.Text),
                    decimal.Parse(txtPrice.Text),
-                   decimal.Parse(txtSellingPrice.Text), Convert.ToDecimal(txtTotalPrice.Text));
+                   decimal.Parse(txtSellingPrice.Text), Convert.ToDecimal(txtTotalPrice.Text), todayDate.Value);
 
 
 
@@ -303,6 +304,7 @@ namespace Retail.Stock.UI
             txtCartonQuantity.Clear();
             txtPerQuantity.Clear();
             txtTotalPrice.Clear();
+            todayDate.Value = DateTime.Today;
             cmbProduct.SelectedIndex = -1;
             LoadData();
         }
@@ -323,6 +325,7 @@ namespace Retail.Stock.UI
                 txtSellingPrice.Text = product.SellingPrice.ToString();
                 cmbProduct.SelectedItem = "Non-Carton";
                 txtTotalPrice.Text = productPrice.TotalPrice.ToString("F");
+                todayDate.Value = product.Date;
             }
         }
 

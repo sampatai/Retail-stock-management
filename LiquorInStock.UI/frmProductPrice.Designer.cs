@@ -64,6 +64,8 @@
             cmbProduct = new ComboBox();
             label1 = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            todayDate = new DateTimePicker();
+            label12 = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
@@ -200,6 +202,8 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(label12);
+            panel2.Controls.Add(todayDate);
             panel2.Controls.Add(txtTotalPrice);
             panel2.Controls.Add(label11);
             panel2.Controls.Add(label9);
@@ -263,7 +267,7 @@
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(490, 219);
+            txtPrice.Location = new Point(490, 215);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(100, 23);
             txtPrice.TabIndex = 9;
@@ -272,7 +276,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(425, 223);
+            label8.Location = new Point(425, 220);
             label8.Name = "label8";
             label8.Size = new Size(53, 15);
             label8.TabIndex = 27;
@@ -417,6 +421,22 @@
             label1.TabIndex = 12;
             label1.Text = "Product";
             // 
+            // todayDate
+            // 
+            todayDate.Location = new Point(490, 249);
+            todayDate.Name = "todayDate";
+            todayDate.Size = new Size(200, 23);
+            todayDate.TabIndex = 32;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(447, 253);
+            label12.Name = "label12";
+            label12.Size = new Size(31, 15);
+            label12.TabIndex = 33;
+            label12.Text = "Date";
+            // 
             // frmProductPrice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -475,5 +495,7 @@
         private Label lblTotalDisplay;
         private TextBox txtTotalPrice;
         private Label label11;
+        private Label label12;
+        private DateTimePicker todayDate;
     }
 }

@@ -29,7 +29,8 @@ namespace Retail.Stock.UI.Model
         public decimal PurchasedPrice { get; set; }     
         public decimal TotaPurchasedPrice { get; set; }
         public decimal SellingPrice { get; set; }
-        public decimal TotalSellingPrice { get; set; } 
+        public decimal TotalSellingPrice { get; set; }
+        public DateTime Date { get; set; }
 
     }
 
