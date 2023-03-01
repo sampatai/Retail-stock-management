@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retail.Stock.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retail.Stock.Shared", "LiquorInStock.Shared\Retail.Stock.Shared.csproj", "{66EBEDB9-7EFF-4B85-9BBB-44F643DA5764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Retail.Stock.UI", "LiquorInStock.UI\Retail.Stock.UI.csproj", "{42338B65-86ED-4533-8CA2-7B6120468BF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Retail.Stock.UI", "LiquorInStock.UI\Retail.Stock.UI.csproj", "{42338B65-86ED-4533-8CA2-7B6120468BF7}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Retail.Stock.Setup", "Retail.Stock.Setup\Retail.Stock.Setup.vdproj", "{519DAA27-1D9A-4BD3-853A-55481DEADCF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,8 @@ Global
 		{42338B65-86ED-4533-8CA2-7B6120468BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42338B65-86ED-4533-8CA2-7B6120468BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42338B65-86ED-4533-8CA2-7B6120468BF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{519DAA27-1D9A-4BD3-853A-55481DEADCF1}.Debug|Any CPU.ActiveCfg = Debug
+		{519DAA27-1D9A-4BD3-853A-55481DEADCF1}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

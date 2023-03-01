@@ -42,6 +42,9 @@ namespace Retail.Stock.UI
         {
             _LoadCategory();
             cmbCategory.SelectedIndex = -1;
+            txtStockIn.Text = "0";
+            txtpurchased.Text = "0";
+            txtSelling.Text = "0";
             LoadData();
         }
 
@@ -215,13 +218,15 @@ namespace Retail.Stock.UI
                 if (!string.IsNullOrEmpty(TxtId.Text))
                 {
                     var product = _productRepository.GetById(Convert.ToInt32(TxtId.Text));
-                    product.SetProduct(selectedCategory.Id, txtName.Text);
+                    product.SetProduct(selectedCategory.Id, txtName.Text, Convert.ToInt32(txtStockIn.Text),
+                        Convert.ToDecimal(txtpurchased.Text), Convert.ToDecimal(txtSelling.Text));
                     _productRepository.Update(product);
                 }
                 else
                 {
                     // Create a new product with the selected category and name
-                    Product newProduct = new Product(selectedCategory.Id, txtName.Text);
+                    Product newProduct = new Product(selectedCategory.Id, txtName.Text, Convert.ToInt32(txtStockIn.Text)
+                        , Convert.ToDecimal(txtpurchased.Text), Convert.ToDecimal(txtSelling.Text));
 
                     // Save the new product to the repository
                     _productRepository.Add(newProduct);
@@ -259,6 +264,9 @@ namespace Retail.Stock.UI
             _productName = "";
             txtName.Clear();
             TxtId.Clear();
+            txtStockIn.Clear();
+            txtSelling.Clear();
+            txtpurchased.Clear();
             cmbCategory.SelectedIndex = -1;
             LoadData();
         }
@@ -275,6 +283,9 @@ namespace Retail.Stock.UI
                 TxtId.Text = product.ProductId.ToString();
                 cmbCategory.SelectedItem = product.CategoryName;
                 cmbCategory.SelectedValue = productOne.CategoryId;
+                txtpurchased.Text = productOne.PurchasedPrice.ToString();
+                txtSelling.Text = productOne.RetailPrice.ToString();
+                txtStockIn.Text = productOne.StockIn.ToString();
             }
         }
 
@@ -332,6 +343,22 @@ namespace Retail.Stock.UI
             {
                 MessageBox.Show("Please select a product to delete.", "Information",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void chkRemoveReadonly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkRemoveReadonly.Checked)
+            {
+                txtStockIn.ReadOnly = false;
+                txtpurchased.ReadOnly = false;
+                txtSelling.ReadOnly = false;
+            }
+            else
+            {
+                txtStockIn.ReadOnly = true;
+                txtpurchased.ReadOnly = true;
+                txtSelling.ReadOnly = true;
             }
         }
     }

@@ -1,0 +1,15 @@
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\bin\Release\net7.0\Retail.Stock.Domain.deps.json
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\bin\Release\net7.0\Retail.Stock.Domain.dll
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\bin\Release\net7.0\Retail.Stock.Domain.pdb
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\bin\Release\net7.0\Retail.Stock.Shared.dll
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\bin\Release\net7.0\Retail.Stock.Shared.pdb
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\Retail.Stock.Domain.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\Retail.Stock.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\Retail.Stock.Domain.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\Retail.Stock.Domain.AssemblyInfo.cs
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\Retail.Stock.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\Retail.Stock.Domain.csproj.CopyComplete
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\Retail.Stock.Domain.dll
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\refint\Retail.Stock.Domain.dll
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\Retail.Stock.Domain.pdb
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Domain\obj\Release\net7.0\ref\Retail.Stock.Domain.dll

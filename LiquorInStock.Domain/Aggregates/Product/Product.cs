@@ -8,12 +8,15 @@ namespace Retail.Stock.Domain.Aggregates.Product
     {
         protected Product() { }
 
-        public Product(int categoryId, string productName)
+        public Product(int categoryId, string productName,int stockIn,decimal purchasedPrice, decimal retailPrice)
         {
             Id = ObjectId.NewObjectId().Increment;
             CategoryId = Guard.Against.NegativeOrZero(categoryId);
             ProductName = Guard.Against.NullOrEmpty(productName);
             AddedOn = DateTime.Today;
+            StockIn = stockIn;
+            PurchasedPrice = purchasedPrice;
+            RetailPrice = retailPrice;
 
         }
 
@@ -26,12 +29,16 @@ namespace Retail.Stock.Domain.Aggregates.Product
 
         public void SetProduct(
             int categoryId,
-            string productName
+            string productName,
+            int stockIn, decimal purchasedPrice, decimal retailPrice
             )
         {
             CategoryId = Guard.Against.NegativeOrZero(categoryId);
             ProductName = productName;
             UpdatedOn = DateTime.Today;
+            StockIn = stockIn;
+            PurchasedPrice = purchasedPrice;
+            RetailPrice = retailPrice;
         }
 
         public void SetPurchasedPrice(decimal price)

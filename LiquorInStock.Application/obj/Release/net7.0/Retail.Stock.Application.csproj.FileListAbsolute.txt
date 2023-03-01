@@ -1,0 +1,17 @@
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\bin\Release\net7.0\Retail.Stock.Application.deps.json
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\bin\Release\net7.0\Retail.Stock.Application.dll
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\bin\Release\net7.0\Retail.Stock.Application.pdb
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\bin\Release\net7.0\Retail.Stock.Domain.dll
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\bin\Release\net7.0\Retail.Stock.Shared.dll
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\bin\Release\net7.0\Retail.Stock.Domain.pdb
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\bin\Release\net7.0\Retail.Stock.Shared.pdb
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\Retail.Stock.Application.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\Retail.Stock.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\Retail.Stock.Application.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\Retail.Stock.Application.AssemblyInfo.cs
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\Retail.Stock.Application.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\Retail.Stock.Application.csproj.CopyComplete
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\Retail.Stock.Application.dll
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\refint\Retail.Stock.Application.dll
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\Retail.Stock.Application.pdb
+C:\Users\Lenovo\Documents\Retail-stock-management\LiquorInStock.Application\obj\Release\net7.0\ref\Retail.Stock.Application.dll
