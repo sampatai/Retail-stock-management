@@ -1,1 +1,1 @@
-# Retail-stock-management
+# Retail stock management
